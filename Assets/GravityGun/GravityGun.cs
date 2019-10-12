@@ -6,6 +6,10 @@ public class GravityGun : MonoBehaviour
     [SerializeField] private float MoveSpeed;
     [SerializeField] private float BotherForce;
     [SerializeField] private float ThrowSpeed;
+
+    [SerializeField] private ParticleSystem unfocused;
+    [SerializeField] private ParticleSystem focused;
+
     private Rigidbody target;
 
     private void Update()
@@ -16,6 +20,10 @@ public class GravityGun : MonoBehaviour
         if (Input.GetMouseButtonDown(1)) // Pick up object
         {
             Debug.Log("Pick Up");
+
+            focused.gameObject.SetActive(false);
+            unfocused.gameObject.SetActive(true);
+
             if (target != null)
             {
                 target.isKinematic = false;
@@ -64,6 +72,9 @@ public class GravityGun : MonoBehaviour
             Debug.Log("Throw");
             if (target is null) return;
 
+            focused.gameObject.SetActive(false);
+            unfocused.gameObject.SetActive(true);
+
             target.isKinematic = false;
             target.velocity = (player.RigidBody.rotation * Vector3.forward).normalized * ThrowSpeed;
             target = null;
@@ -73,6 +84,9 @@ public class GravityGun : MonoBehaviour
             Debug.Log("Drop");
             if (target is null) return;
 
+            focused.gameObject.SetActive(false);
+            unfocused.gameObject.SetActive(false);
+
             target.isKinematic = false;
             target = null;
         }
@@ -81,6 +95,9 @@ public class GravityGun : MonoBehaviour
             Debug.Log("Carry");
             if (target is null) return;
 
+            focused.gameObject.SetActive(true);
+            unfocused.gameObject.SetActive(false);
+
             target.transform.position =
                 Vector3.MoveTowards(target.position, this.transform.position, MoveSpeed * Time.deltaTime);
         }
@@ -88,7 +105,10 @@ public class GravityGun : MonoBehaviour
         {
             Debug.Log("Nothing");
             VisibleSphere.SetActive(false);
-            
+
+            focused.gameObject.SetActive(false);
+            unfocused.gameObject.SetActive(false);
+
             if (target is null) return;
             target.isKinematic = false;
             target = null;
