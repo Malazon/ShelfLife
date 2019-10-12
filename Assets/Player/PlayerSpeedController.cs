@@ -4,20 +4,26 @@ using UnityEngine;
 
 public class PlayerSpeedController : MonoBehaviour
 {
-    private Rigidbody playerRigidBody;
-
     [SerializeField] private float cooldown = 0.25f;
     [SerializeField] private float maxSpeed = 1f;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        this.playerRigidBody = gameObject.GetComponent<Rigidbody>();
-    }
 
     // Update is called once per frame
     void Update()
     {
+        if (PlayerSingleton.Active is null)
+        {
+            return;
+        }
+
+        var player = PlayerSingleton.Active;
+
+        if (CameraSingleton.Active is null)
+        {
+            return;
+        }
+
+        var camera = CameraSingleton.Active;
+        
         Vector3 input = Vector3.zero;
         
         if (Input.GetKey(KeyCode.W))
@@ -41,11 +47,13 @@ public class PlayerSpeedController : MonoBehaviour
         }
 
         var newSpeed = Mathf.Clamp(
-            playerRigidBody.velocity.magnitude + maxSpeed / cooldown * Time.deltaTime, 
+            player.RigidBody.velocity.magnitude + maxSpeed / cooldown * Time.deltaTime, 
             0f,
             max: maxSpeed
             );
+        
+        var planeDirection = Vector3.ProjectOnPlane(camera.transform.rotation * Vector3.forward, Vector3.up);
 
-        playerRigidBody.velocity = playerRigidBody.rotation * Vector3.forward * newSpeed;
+        player.RigidBody.velocity = Quaternion.LookRotation(planeDirection) * input * newSpeed;
     }
 }

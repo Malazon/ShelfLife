@@ -12,13 +12,25 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Player/PlayerMovementController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Camera &amp; Zones/CameraSingleton.cs.meta" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Camera &amp; Zones/CameraSingleton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Player/PlayerSpeedController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Player/PlayerSingleton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Camera &amp; Zones/ZoneTrigger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Player/PlayerRotationController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/Assets/Player/PlayerMovementController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Camera &amp; Zones/CameraController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/PlayerMasterController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/PlayerSingleton.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/PlayerRotationController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Camera &amp; Zones/CameraSingleton.cs" />
+        <option value="$PROJECT_DIR$/Assets/Camera &amp; Zones/ZoneTrigger.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/PlayerSpeedController.cs" />
       </list>
     </option>
   </component>
@@ -28,6 +40,7 @@
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -67,7 +80,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1570846128727</updated>
-      <workItem from="1570846133331" duration="2666000" />
+      <workItem from="1570846133331" duration="11704000" />
     </task>
     <servers />
   </component>

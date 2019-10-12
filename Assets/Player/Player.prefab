@@ -58,8 +58,8 @@ CapsuleCollider:
   m_Enabled: 1
   m_Radius: 0.29136515
   m_Height: 2.2173426
-  m_Direction: 0
-  m_Center: {x: 0.5502595, y: 0.5, z: 0}
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.5, z: 0.5}
 --- !u!1 &5845376116309550131
 GameObject:
   m_ObjectHideFlags: 0
@@ -70,6 +70,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5845376116309550130}
   - component: {fileID: 6115117034045913312}
+  - component: {fileID: 4508747413169201159}
+  - component: {fileID: 7127031982151309504}
+  - component: {fileID: 7720259956458502323}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -105,6 +108,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf48f3e670eef7d49a50ada7c9114251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldown: 0.25
+  maxSpeed: 3
+--- !u!114 &4508747413169201159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5845376116309550131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a12135562408ec4aa19a4a9cfe852be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidBody: {fileID: 7720259956458502323}
+--- !u!114 &7127031982151309504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5845376116309550131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bcef984fcc9eac4e9e7f7b3f0114a8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationRate: 720
+--- !u!54 &7720259956458502323
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5845376116309550131}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 84
+  m_CollisionDetection: 0
 --- !u!1 &7172619862867993873
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,7 +163,6 @@ GameObject:
   - component: {fileID: 132157081005227714}
   - component: {fileID: 755397615673367186}
   - component: {fileID: 4556086053883750763}
-  - component: {fileID: 2361947856295180879}
   m_Layer: 0
   m_Name: GunPlaceholder
   m_TagString: Untagged
@@ -132,8 +178,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7172619862867993873}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 4188031833119779369}
   m_RootOrder: 0
@@ -163,7 +209,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8ab917d64e326474eb3d0a9e4fa22e69, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -184,19 +230,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &2361947856295180879
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7172619862867993873}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8928265436322523969
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +255,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8928265436322523969}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -255,7 +288,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5b5f3ae69268c634b92149d8abaeb880, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
