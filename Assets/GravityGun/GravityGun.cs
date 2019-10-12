@@ -19,7 +19,7 @@ public class GravityGun : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1)) // Pick up object
         {
-            Debug.Log("Pick Up");
+            //Debug.Log("Pick Up");
 
             focused.gameObject.SetActive(false);
             unfocused.gameObject.SetActive(true);
@@ -69,7 +69,7 @@ public class GravityGun : MonoBehaviour
         }
         else if (Input.GetMouseButtonDown(0)) // Throw Object
         {
-            Debug.Log("Throw");
+            //Debug.Log("Throw");
             if (target is null) return;
 
             focused.gameObject.SetActive(false);
@@ -81,7 +81,7 @@ public class GravityGun : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(1)) // Drop Object
         {
-            Debug.Log("Drop");
+            //Debug.Log("Drop");
             if (target is null) return;
 
             focused.gameObject.SetActive(false);
@@ -92,7 +92,7 @@ public class GravityGun : MonoBehaviour
         }
         else if (Input.GetMouseButton(1)) // Carry Object
         {
-            Debug.Log("Carry");
+            //Debug.Log("Carry");
             if (target is null) return;
 
             focused.gameObject.SetActive(true);
@@ -100,10 +100,12 @@ public class GravityGun : MonoBehaviour
 
             target.transform.position =
                 Vector3.MoveTowards(target.position, this.transform.position, MoveSpeed * Time.deltaTime);
+            target.transform.rotation = this.transform.rotation;
+
         }
         else // Drop Object
         {
-            Debug.Log("Nothing");
+            //Debug.Log("Nothing");
             VisibleSphere.SetActive(false);
 
             focused.gameObject.SetActive(false);
