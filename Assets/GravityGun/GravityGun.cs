@@ -6,7 +6,39 @@ public class GravityGun : MonoBehaviour
     [SerializeField] private float MoveSpeed;
     [SerializeField] private float BotherForce;
     [SerializeField] private float ThrowSpeed;
+
+    [SerializeField] private ParticleSystem unfocused;
+    [SerializeField] private ParticleSystem focused;
+
+    [SerializeField] private AudioSource source;
+    [SerializeField] private AudioSource sourceFire;
+
+    [SerializeField] private AudioClip fireSound;
+    [SerializeField] private AudioClip holdSound;
+    [SerializeField] private AudioClip pullSound;
+
     private Rigidbody target;
+
+    private void Awake()
+    {
+        source = this.gameObject.GetComponent<AudioSource>();
+    }
+
+    private void PlaySFX(AudioClip clip)
+    {
+        source.PlayOneShot(clip);
+    }
+
+    private void PlaySFXFire(AudioClip clip)
+    {
+        sourceFire.PlayOneShot(clip);
+    }
+
+    private void StopSFX()
+    {
+        source.Stop();
+    }
+
 
     private void Update()
     {
@@ -15,7 +47,13 @@ public class GravityGun : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1)) // Pick up object
         {
-            Debug.Log("Pick Up");
+            //Debug.Log("Pick Up");
+
+            PlaySFX(pullSound);
+
+            focused.gameObject.SetActive(false);
+            unfocused.gameObject.SetActive(true);
+
             if (target != null)
             {
                 target.isKinematic = false;
@@ -45,6 +83,8 @@ public class GravityGun : MonoBehaviour
                 {
                     target = colliderRigidBody;
                     targetDistance = colliderDistance;
+
+
                 }
             }
 
@@ -61,8 +101,14 @@ public class GravityGun : MonoBehaviour
         }
         else if (Input.GetMouseButtonDown(0)) // Throw Object
         {
-            Debug.Log("Throw");
+            //Debug.Log("Throw");
             if (target is null) return;
+
+            focused.gameObject.SetActive(false);
+            unfocused.gameObject.SetActive(true);
+
+            StopSFX();
+            PlaySFXFire(fireSound);
 
             target.isKinematic = false;
             target.velocity = (player.RigidBody.rotation * Vector3.forward).normalized * ThrowSpeed;
@@ -70,25 +116,38 @@ public class GravityGun : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(1)) // Drop Object
         {
-            Debug.Log("Drop");
+            //Debug.Log("Drop");
             if (target is null) return;
+
+            focused.gameObject.SetActive(false);
+            unfocused.gameObject.SetActive(false);
 
             target.isKinematic = false;
             target = null;
         }
         else if (Input.GetMouseButton(1)) // Carry Object
         {
-            Debug.Log("Carry");
+            //Debug.Log("Carry");
             if (target is null) return;
 
-            target.transform.position =
-                Vector3.MoveTowards(target.position, this.transform.position, MoveSpeed * Time.deltaTime);
+            focused.gameObject.SetActive(true);
+            unfocused.gameObject.SetActive(false);
+            PlaySFX(holdSound);
+
+            target.transform.position = Vector3.MoveTowards(target.position, this.transform.position, MoveSpeed * Time.deltaTime);
+            target.transform.rotation = this.transform.rotation;
+
         }
         else // Drop Object
         {
-            Debug.Log("Nothing");
+            //Debug.Log("Nothing");
             VisibleSphere.SetActive(false);
-            
+           
+
+            focused.gameObject.SetActive(false);
+            unfocused.gameObject.SetActive(false);
+            StopSFX();
+
             if (target is null) return;
             target.isKinematic = false;
             target = null;
