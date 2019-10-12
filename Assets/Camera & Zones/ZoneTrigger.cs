@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ZoneTrigger : MonoBehaviour
 {
@@ -9,14 +6,9 @@ public class ZoneTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (CameraSingleton.Active is null)
-        {
-            return;
-        }
-        
-        if ( other.GetComponentInParent<PlayerSingleton>() != null)
-        {
-            CameraSingleton.Active.TargetLocation = this.CameraLocation.transform;
-        }
+        if (CameraSingleton.Active is null) return;
+
+        if (other.GetComponentInParent<PlayerSingleton>() != null)
+            CameraSingleton.Active.TargetLocation = CameraLocation.transform;
     }
 }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlayerCombat : MonoBehaviour
+public class GrabableObject : MonoBehaviour
 {
     // Start is called before the first frame update
     private void Start()

@@ -16,9 +16,11 @@
           <e p="PlayerCombat.cs" t="Include" />
         </e>
         <e p="GravityGun" t="Include">
+          <e p="GrabableObject.cs" t="Include" />
           <e p="GravityGun.cs" t="Include" />
         </e>
         <e p="Player" t="Include">
+          <e p="MouseWorldPosition.cs" t="Include" />
           <e p="PlayerRotationController.cs" t="Include" />
           <e p="PlayerSingleton.cs" t="Include" />
           <e p="PlayerSpeedController.cs" t="Include" />

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c00d88a0-b259-47ab-bcaf-d59ad86e82bd" name="Default Changelist" comment="" />
@@ -17,7 +17,9 @@
     <setting file="file://$PROJECT_DIR$/Assets/Player/PlayerSpeedController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/PlayerSingleton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Camera &amp; Zones/ZoneTrigger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GravityGun/GravityGun.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/PlayerRotationController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Player/MouseWorldPosition.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -26,11 +28,13 @@
         <option value="$PROJECT_DIR$/Assets/Player/PlayerMovementController.cs" />
         <option value="$PROJECT_DIR$/Assets/Camera &amp; Zones/CameraController.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/PlayerMasterController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Camera &amp; Zones/ZoneTrigger.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/PlayerSpeedController.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/PlayerSingleton.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/PlayerRotationController.cs" />
         <option value="$PROJECT_DIR$/Assets/Camera &amp; Zones/CameraSingleton.cs" />
-        <option value="$PROJECT_DIR$/Assets/Camera &amp; Zones/ZoneTrigger.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/PlayerSpeedController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/MouseWorldPosition.cs" />
+        <option value="$PROJECT_DIR$/Assets/GravityGun/GravityGun.cs" />
       </list>
     </option>
   </component>
@@ -40,7 +44,7 @@
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -80,7 +84,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1570846128727</updated>
-      <workItem from="1570846133331" duration="11704000" />
+      <workItem from="1570846133331" duration="13973000" />
+      <workItem from="1570875661854" duration="3766000" />
     </task>
     <servers />
   </component>
@@ -91,7 +96,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

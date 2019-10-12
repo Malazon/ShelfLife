@@ -1,30 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerSingleton : MonoBehaviour
 {
-    private static PlayerSingleton _active;
+    [SerializeField] private Rigidbody _rigidBody;
+    [SerializeField] private MouseWorldPosition _mouseWorldPosition;
+    public static PlayerSingleton Active { get; private set; }
 
-    public static PlayerSingleton Active => _active;
+    public Rigidbody RigidBody => _rigidBody;
 
-    [SerializeField] private Rigidbody rigidBody;
+    public MouseWorldPosition MouseWorldPosition => _mouseWorldPosition;
 
-    public Rigidbody RigidBody => rigidBody;
-
-    void Start()
+    private void Start()
     {
-        
-        if(_active != null)
-        {
-            if (_active.gameObject.activeInHierarchy)
+        if (Active != null)
+            if (Active.gameObject.activeInHierarchy)
             {
                 Debug.LogWarning("Tried to initiate an additional player.");
-                this.gameObject.SetActive(false);
+                gameObject.SetActive(false);
                 return;
             }
-        }
-        
-        _active = this;
+
+        Active = this;
     }
 }
