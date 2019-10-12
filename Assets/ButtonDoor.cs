@@ -8,9 +8,13 @@ public class ButtonDoor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "ButtonTriggererBlock")
+        if (other.TryGetComponent(out GrabableObject GO) || other.tag == "Player")
         {
-            Debug.Log("Button is Triggered");
+            if(GO.triggersButtons || other.tag == "Player")
+            {
+                Debug.Log("Button is Triggered");
+            }           
         }
+
     }
 }
