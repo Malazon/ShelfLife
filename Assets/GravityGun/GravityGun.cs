@@ -34,10 +34,11 @@ public class GravityGun : MonoBehaviour
             
             Debug.DrawRay(this.transform.position, Vector3.up, Color.blue, 5f);
 
-            var raycastHits = Physics.SphereCastAll(this.transform.position - Vector3.up * this.transform.position.y, 2.5f,
-                player.RigidBody.rotation * Vector3.forward, 4.5f, LayerMask.GetMask("Grabable"));
+            var raycastHits = Physics.SphereCastAll(this.transform.position - Vector3.up * this.transform.position.y, 1f,
+                player.RigidBody.rotation * Vector3.forward, 3.5f, LayerMask.GetMask("Grabable"));
 
             float targetDistance = 10000f;
+            int targetPriority = -1;
 
             foreach (var hit in raycastHits)
             {
@@ -47,12 +48,31 @@ public class GravityGun : MonoBehaviour
                 
                 colliderRigidBody.AddRelativeForce(player.RigidBody.rotation * Vector3.back * BotherForce, ForceMode.Impulse);
 
+                var colliderPriority = -1;
+                
+                if (collider.TryGetComponent(out GrabableObject colliderGrabbableObject)) colliderPriority = colliderGrabbableObject.Priority;
+                
                 var colliderDistance = hit.distance;
 
-                if (target is null || collider.gameObject.CompareTag("Grabable") || colliderDistance < targetDistance)
+                if (target is null || collider.gameObject.CompareTag("Grabable"))
                 {
-                    target = colliderRigidBody;
-                    targetDistance = colliderDistance;
+                    if (target is null)
+                    {
+                        target = colliderRigidBody;
+                        targetDistance = colliderDistance;
+                        targetPriority = colliderPriority;
+                    }
+                    else if (colliderPriority > targetPriority)
+                    {
+                        target = colliderRigidBody;
+                        targetDistance = colliderDistance;
+                        targetPriority = colliderPriority;
+                        
+                    } else if (colliderPriority == targetPriority && colliderDistance < targetDistance)
+                    {
+                        target = colliderRigidBody;
+                        targetDistance = colliderDistance;
+                    }
                 }
             }
 
@@ -101,7 +121,6 @@ public class GravityGun : MonoBehaviour
             target.transform.position =
                 Vector3.MoveTowards(target.position, this.transform.position, MoveSpeed * Time.deltaTime);
             target.transform.rotation = this.transform.rotation;
-
         }
         else // Drop Object
         {
