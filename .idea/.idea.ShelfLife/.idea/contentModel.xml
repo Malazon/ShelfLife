@@ -17,6 +17,10 @@
           <e p="GrabableObject.cs" t="Include" />
           <e p="GravityGun.cs" t="Include" />
         </e>
+        <e p="Laser" t="Include">
+          <e p="Laser.cs" t="Include" />
+          <e p="RedirectionCube.cs" t="Include" />
+        </e>
         <e p="Player" t="Include">
           <e p="MouseWorldPosition.cs" t="Include" />
           <e p="PlayerRotationController.cs" t="Include" />
