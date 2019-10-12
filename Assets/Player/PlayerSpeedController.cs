@@ -45,6 +45,6 @@ public class PlayerSpeedController : MonoBehaviour
 
         var planeDirection = Vector3.ProjectOnPlane(camera.transform.rotation * Vector3.forward, Vector3.up);
 
-        player.RigidBody.velocity = Quaternion.LookRotation(planeDirection) * input * newSpeed;
+        player.RigidBody.velocity = Quaternion.LookRotation(planeDirection) * (Quaternion.Euler(0,camera.transform.eulerAngles.y,0) * input) * newSpeed;
     }
 }
