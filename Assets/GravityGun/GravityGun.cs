@@ -3,8 +3,9 @@
 public class GravityGun : MonoBehaviour
 {
     [SerializeField] private GameObject VisibleSphere;
-    [SerializeField] private float MoveSpeed = 25;
-    [SerializeField] private float ThrowSpeed = 25;
+    [SerializeField] private float MoveSpeed;
+    [SerializeField] private float BotherForce;
+    [SerializeField] private float ThrowSpeed;
     private Rigidbody target;
 
     private void Update()
@@ -22,19 +23,25 @@ public class GravityGun : MonoBehaviour
             }
 
             VisibleSphere.SetActive(true);
+            
+            Debug.DrawRay(this.transform.position, Vector3.up, Color.blue, 5f);
 
-            var colliders =
-                Physics.OverlapSphere(VisibleSphere.transform.position, VisibleSphere.transform.localScale.x);
+            var raycastHits = Physics.SphereCastAll(this.transform.position - Vector3.up * this.transform.position.y, 2.5f,
+                player.RigidBody.rotation * Vector3.forward, 4.5f, LayerMask.GetMask("Grabable"));
 
             float targetDistance = 10000f;
 
-            foreach (var collider in colliders)
+            foreach (var hit in raycastHits)
             {
+                var collider = hit.collider;
+                
                 if (!collider.TryGetComponent(out Rigidbody colliderRigidBody)) continue;
                 
-                var colliderDistance = Vector3.Distance(colliderRigidBody.position, VisibleSphere.transform.position);
+                colliderRigidBody.AddRelativeForce(player.RigidBody.rotation * Vector3.back * BotherForce, ForceMode.Impulse);
 
-                if (target is null || colliderDistance < targetDistance)
+                var colliderDistance = hit.distance;
+
+                if (target is null || collider.gameObject.CompareTag("Grabable") || colliderDistance < targetDistance)
                 {
                     target = colliderRigidBody;
                     targetDistance = colliderDistance;
@@ -49,6 +56,7 @@ public class GravityGun : MonoBehaviour
             {
                 target.isKinematic = true;
                 VisibleSphere.SetActive(false);
+                Debug.DrawRay(target.position, Vector3.up, Color.cyan, 5f);
             }
         }
         else if (Input.GetMouseButtonDown(0)) // Throw Object
@@ -74,7 +82,7 @@ public class GravityGun : MonoBehaviour
             if (target is null) return;
 
             target.transform.position =
-                Vector3.MoveTowards(target.position, VisibleSphere.transform.position, MoveSpeed);
+                Vector3.MoveTowards(target.position, this.transform.position, MoveSpeed * Time.deltaTime);
         }
         else // Drop Object
         {
