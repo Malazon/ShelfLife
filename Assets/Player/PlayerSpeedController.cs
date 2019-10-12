@@ -4,11 +4,6 @@ public class PlayerSpeedController : MonoBehaviour
 {
     [SerializeField] private float cooldown = 0.25f;
     [SerializeField] private float maxSpeed = 1f;
-    [SerializeField] private Animator playerAnimator = null;
-
-
-    private const string animForwardFloatKey = "Forward";
-    private const string animStrafeFloatKey = "Strafe";
 
     // Update is called once per frame
     private void Update()
@@ -30,12 +25,6 @@ public class PlayerSpeedController : MonoBehaviour
         if (Input.GetKey(KeyCode.A)) input += Vector3.left;
 
         if (Input.GetKey(KeyCode.D)) input += Vector3.right;
-
-        if (playerAnimator)
-        {
-            playerAnimator.SetFloat(animForwardFloatKey,    Vector3.Dot(input, player.transform.forward));
-            playerAnimator.SetFloat(animStrafeFloatKey,     Vector3.Dot(input, player.transform.right));
-        }
 
         var newSpeed = Mathf.Clamp(
             player.RigidBody.velocity.magnitude + maxSpeed / cooldown * Time.deltaTime,
