@@ -11,9 +11,7 @@
           <e p="ZoneTrigger.cs" t="Include" />
         </e>
         <e p="Combat" t="Include">
-          <e p="Bullet.cs" t="Include" />
-          <e p="EnemyCombat.cs" t="Include" />
-          <e p="PlayerCombat.cs" t="Include" />
+          <e p="Combatant.cs" t="Include" />
         </e>
         <e p="GravityGun" t="Include">
           <e p="GrabableObject.cs" t="Include" />
@@ -23,11 +21,15 @@
           <e p="Laser.cs" t="Include" />
           <e p="RedirectionCube.cs" t="Include" />
         </e>
+        <e p="PanTexture.cs" t="Include" />
         <e p="Player" t="Include">
           <e p="MouseWorldPosition.cs" t="Include" />
           <e p="PlayerRotationController.cs" t="Include" />
           <e p="PlayerSingleton.cs" t="Include" />
           <e p="PlayerSpeedController.cs" t="Include" />
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="SimpleCameraController.cs" t="Include" />
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />

@@ -10,7 +10,35 @@ public class GravityGun : MonoBehaviour
     [SerializeField] private ParticleSystem unfocused;
     [SerializeField] private ParticleSystem focused;
 
+    [SerializeField] private AudioSource source;
+    [SerializeField] private AudioSource sourceFire;
+
+    [SerializeField] private AudioClip fireSound;
+    [SerializeField] private AudioClip holdSound;
+    [SerializeField] private AudioClip pullSound;
+
     private Rigidbody target;
+
+    private void Awake()
+    {
+        source = this.gameObject.GetComponent<AudioSource>();
+    }
+
+    private void PlaySFX(AudioClip clip)
+    {
+        source.PlayOneShot(clip);
+    }
+
+    private void PlaySFXFire(AudioClip clip)
+    {
+        sourceFire.PlayOneShot(clip);
+    }
+
+    private void StopSFX()
+    {
+        source.Stop();
+    }
+
 
     private void Update()
     {
@@ -20,6 +48,8 @@ public class GravityGun : MonoBehaviour
         if (Input.GetMouseButtonDown(1)) // Pick up object
         {
             //Debug.Log("Pick Up");
+
+            PlaySFX(pullSound);
 
             focused.gameObject.SetActive(false);
             unfocused.gameObject.SetActive(true);
@@ -53,6 +83,8 @@ public class GravityGun : MonoBehaviour
                 {
                     target = colliderRigidBody;
                     targetDistance = colliderDistance;
+
+
                 }
             }
 
@@ -74,6 +106,9 @@ public class GravityGun : MonoBehaviour
 
             focused.gameObject.SetActive(false);
             unfocused.gameObject.SetActive(true);
+
+            StopSFX();
+            PlaySFXFire(fireSound);
 
             target.isKinematic = false;
             target.velocity = (player.RigidBody.rotation * Vector3.forward).normalized * ThrowSpeed;
@@ -97,9 +132,9 @@ public class GravityGun : MonoBehaviour
 
             focused.gameObject.SetActive(true);
             unfocused.gameObject.SetActive(false);
+            PlaySFX(holdSound);
 
-            target.transform.position =
-                Vector3.MoveTowards(target.position, this.transform.position, MoveSpeed * Time.deltaTime);
+            target.transform.position = Vector3.MoveTowards(target.position, this.transform.position, MoveSpeed * Time.deltaTime);
             target.transform.rotation = this.transform.rotation;
 
         }
@@ -107,9 +142,11 @@ public class GravityGun : MonoBehaviour
         {
             //Debug.Log("Nothing");
             VisibleSphere.SetActive(false);
+           
 
             focused.gameObject.SetActive(false);
             unfocused.gameObject.SetActive(false);
+            StopSFX();
 
             if (target is null) return;
             target.isKinematic = false;
