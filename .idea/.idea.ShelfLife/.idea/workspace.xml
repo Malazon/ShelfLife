@@ -16,7 +16,9 @@
     <setting file="file://$PROJECT_DIR$/Assets/Camera &amp; Zones/CameraSingleton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/PlayerSpeedController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/PlayerSingleton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Laser/RedirectionCube.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Camera &amp; Zones/ZoneTrigger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Laser/Laser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GravityGun/GravityGun.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GravityGun/GrabableObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/PlayerRotationController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -36,6 +38,8 @@
         <option value="$PROJECT_DIR$/Assets/Camera &amp; Zones/CameraSingleton.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/MouseWorldPosition.cs" />
         <option value="$PROJECT_DIR$/Assets/GravityGun/GravityGun.cs" />
+        <option value="$PROJECT_DIR$/Assets/Laser/RedirectionCube.cs" />
+        <option value="$PROJECT_DIR$/Assets/Laser/Laser.cs" />
       </list>
     </option>
   </component>
@@ -86,7 +90,8 @@
       <option name="presentableId" value="Default" />
       <updated>1570846128727</updated>
       <workItem from="1570846133331" duration="13973000" />
-      <workItem from="1570875661854" duration="7131000" />
+      <workItem from="1570875661854" duration="6387000" />
+      <workItem from="1570904009392" duration="2205000" />
     </task>
     <servers />
   </component>
