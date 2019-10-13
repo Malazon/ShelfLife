@@ -10,6 +10,12 @@ public class PlayerLifeController : MonoBehaviour
         if (PlayerSingleton.Active == null) return;
 
         var player = PlayerSingleton.Active;
+
+        if (player.transform.position.y < -5)
+        {
+            player.Combatant.Kill();
+            PauseMenuSingleton.Active.Pause();
+        }
         
         if (player.Combatant.HasDied)
         {

@@ -12,6 +12,7 @@ public class PauseMenuSingleton : MonoBehaviour
 
     private bool _paused = false;
     public bool DisablePause = false;
+    public bool WonGame;
 
     public static bool Paused
     {
@@ -61,6 +62,22 @@ public class PauseMenuSingleton : MonoBehaviour
         _paused = false;
     }
 
+    public void Win()
+    {
+        WonGame = true;
+        if (PauseMenuInstance == null)
+        {
+            PauseMenuInstance = GameObject.Instantiate(PauseMenuPrefab, null);
+        }
+        else
+        {
+            PauseMenuInstance.SetActive(true);
+        }
+    
+        Time.timeScale = 0;
+        _paused = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -69,6 +86,11 @@ public class PauseMenuSingleton : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Escape))
         {
             Pause();
+        }
+
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            Win();
         }
     }
 }

@@ -4,7 +4,7 @@ public class CameraSingleton : MonoBehaviour
 {
     [SerializeField] private float moveRate = 5f;
 
-    public Transform TargetLocation;
+    public Transform TargetTransform;
     [SerializeField] private float turnRate = 720f;
     [SerializeField] private Camera _camera;
 
@@ -24,14 +24,14 @@ public class CameraSingleton : MonoBehaviour
             }
 
         Active = this;
-        TargetLocation = _camera.transform;
+        TargetTransform = _camera.transform;
     }
 
     private void Update()
     {
         _camera.transform.position =
-            Vector3.MoveTowards(_camera.transform.position, TargetLocation.position, moveRate * Time.deltaTime);
-        _camera.transform.rotation = Quaternion.RotateTowards(_camera.transform.rotation, TargetLocation.rotation,
+            Vector3.MoveTowards(_camera.transform.position, TargetTransform.position, moveRate * Time.deltaTime);
+        _camera.transform.rotation = Quaternion.RotateTowards(_camera.transform.rotation, TargetTransform.rotation,
             turnRate * Time.deltaTime);
     }
 }

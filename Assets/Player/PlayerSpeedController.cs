@@ -53,6 +53,12 @@ public class PlayerSpeedController : MonoBehaviour
         Debug.DrawRay(player.transform.position, cameraRotation, Color.red, 0);
 
         player.RigidBody.velocity = Quaternion.LookRotation(cameraRotation, Vector3.up) * input * newSpeed;
+        
+        // Check on the falling.
+        if (!Physics.Raycast(transform.position + Vector3.up, Vector3.down, 3))
+        {
+            player.RigidBody.velocity += Vector3.down * 5f;
+        }
 
         #region Animation Signals
         player.PlayerAnimationCodeHook.SetForward(Vector3.Dot(player.RigidBody.velocity, player.transform.forward));
