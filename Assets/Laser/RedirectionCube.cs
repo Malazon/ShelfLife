@@ -5,7 +5,6 @@ using UnityEngine;
 public class RedirectionCube : MonoBehaviour
 {
     [SerializeField] private Laser laser;
-    private RedirectionCube lastCubeHit;
 
     public void StartBeingHit()
     {

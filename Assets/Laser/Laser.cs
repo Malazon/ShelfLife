@@ -45,6 +45,12 @@ public class Laser : MonoBehaviour
                 _lastCubeHit = null;
             }
             
+            // Check for trigger
+            if (hit.collider.TryGetComponent(out LaserTrigger Trigger))
+            {
+                Trigger.Hit();
+            }
+            
             // Check for combatant
             if (hit.collider.TryGetComponent(out Combatant combatant))
             {
