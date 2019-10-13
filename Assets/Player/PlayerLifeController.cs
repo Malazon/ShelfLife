@@ -19,7 +19,7 @@ public class PlayerLifeController : MonoBehaviour
             PauseMenuSingleton.Active.Pause();
         }
         
-        if (player.Combatant.HasDied && hasTriggeredDeath)
+        if (player.Combatant.HasDied && !hasTriggeredDeath)
         {
             PlayerSingleton.Active.PlayerAnimationCodeHook.SetDead(true);
             if (PauseMenuSingleton.Active == null) return;
