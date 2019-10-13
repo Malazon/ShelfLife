@@ -14,6 +14,11 @@
         <e p="Combat" t="Include">
           <e p="Combatant.cs" t="Include" />
         </e>
+        <e p="Enemies" t="Include">
+          <e p="Turret" t="Include">
+            <e p="Turret.cs" t="Include" />
+          </e>
+        </e>
         <e p="GravityGun" t="Include">
           <e p="GrabableObject.cs" t="Include" />
           <e p="GravityGun.cs" t="Include" />
