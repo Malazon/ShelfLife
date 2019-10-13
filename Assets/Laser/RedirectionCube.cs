@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Cinemachine.Utility;
 using UnityEngine;
 
 public class RedirectionCube : MonoBehaviour
@@ -20,5 +21,11 @@ public class RedirectionCube : MonoBehaviour
         {
             laser.gameObject.SetActive(false);
         }
+    }
+
+    public void FixedUpdate()
+    {
+        transform.rotation =
+            Quaternion.LookRotation((transform.rotation * Vector3.forward).ProjectOntoPlane(Vector3.up));
     }
 }
