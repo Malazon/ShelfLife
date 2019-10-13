@@ -9,6 +9,7 @@ public class PauseMenuSingleton : MonoBehaviour
     [SerializeField] private GameObject PauseMenuPrefab;
     [SerializeField] private GameObject PauseMenuInstance;
 
+
     private bool _paused = false;
     public bool DisablePause = false;
 
