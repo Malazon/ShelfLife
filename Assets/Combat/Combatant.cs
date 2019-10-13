@@ -44,6 +44,12 @@ public class Combatant : MonoBehaviour
         _damageThisFrame = 0;
     }
 
+    public void Kill()
+    {
+        _health = 0;
+        _hasDied = true;
+    }
+
     public void Update()
     {
         if (!immortal && !_hasDied && Time.time - _lastDamageTime > recoveryDelay)

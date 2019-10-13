@@ -8,22 +8,27 @@ public class PauseMenuController : MonoBehaviour
 {
     [SerializeField] private GameObject DeathParent;
     [SerializeField] private GameObject PauseParent;
+    [SerializeField] private GameObject WonParent;
     [SerializeField] private AudioSource pauseSFXSource;
     [SerializeField] private AudioClip pauseSFXClip;
 
     private void OnEnable()
     {
-        if (PlayerSingleton.Active != null && PlayerSingleton.Active.Combatant.HasDied)
+        WonParent.SetActive(false);
+        DeathParent.SetActive(false);
+        PauseParent.SetActive(false);
+        
+        if (PauseMenuSingleton.Active.WonGame)
         {
-            // Show the you died object
-            PauseParent.SetActive(false);
+            WonParent.SetActive(true);
+        }
+        else if (PlayerSingleton.Active != null && PlayerSingleton.Active.Combatant.HasDied)
+        {
             DeathParent.SetActive(true);
         }
         else
         {
-            // Show the pause object
             PauseParent.SetActive(true);
-            DeathParent.SetActive(false);
         }
     }
 
@@ -46,10 +51,14 @@ public class PauseMenuController : MonoBehaviour
     private void Update()
     {
 
-        if (Input.GetKeyUp(KeyCode.Escape))
+       if (Input.GetKeyUp(KeyCode.Escape))
         {
             
-            if (PlayerSingleton.Active != null && PlayerSingleton.Active.Combatant.HasDied)
+            if (PauseMenuSingleton.Active.WonGame)
+            {
+                SceneManager.LoadScene("Main Menu");
+                PauseMenuSingleton.Active.Unpause();
+            } else if (PlayerSingleton.Active != null && PlayerSingleton.Active.Combatant.HasDied)
             {
                 SceneManager.LoadScene("Main Menu");
                 PauseMenuSingleton.Active.Unpause();
