@@ -8,22 +8,9 @@ public class LaserTrigger : MonoBehaviour
     
     public void Hit()
     {
-        lastHit = Time.time;
         if (_door != null)
         {
             _door.Trigger();
-        }
-    }
-
-    private float lastHit = 0;
-    
-    public void Update() {
-        if (Time.time - lastHit > 1)
-        {
-            if (_door != null)
-            {
-                _door.Trigger();
-            }
         }
     }
 }
