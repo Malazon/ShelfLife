@@ -134,7 +134,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.21
-  m_Height: 1.88
+  m_Height: 0.78
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0.89, z: -0.00000008940697}
 --- !u!114 &6267781316553480641
@@ -293,6 +293,7 @@ MonoBehaviour:
     type: 3}
   PauseMenuInstance: {fileID: 0}
   DisablePause: 0
+  WonGame: 0
 --- !u!1001 &1138870131947868744
 PrefabInstance:
   m_ObjectHideFlags: 0

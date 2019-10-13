@@ -47,6 +47,7 @@
           <e p="Door.cs" t="Include" />
           <e p="KeyCardReciever.cs" t="Include" />
           <e p="SimpleCameraController.cs" t="Include" />
+          <e p="WinCollider.cs" t="Include" />
         </e>
         <e p="Turret" t="Include">
           <e p="Turret.cs" t="Include" />

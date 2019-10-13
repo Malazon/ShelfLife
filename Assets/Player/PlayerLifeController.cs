@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerLifeController : MonoBehaviour
 {
+    private bool hasTriggeredDeath = false;
+    private float deathStart = 0;
     private void Update()
     {
         if (PauseMenuSingleton.Paused) return;
@@ -17,11 +19,17 @@ public class PlayerLifeController : MonoBehaviour
             PauseMenuSingleton.Active.Pause();
         }
         
-        if (player.Combatant.HasDied)
+        if (player.Combatant.HasDied && hasTriggeredDeath)
         {
             PlayerSingleton.Active.PlayerAnimationCodeHook.SetDead(true);
             if (PauseMenuSingleton.Active == null) return;
             PauseMenuSingleton.Active.DisablePause = true;
+            deathStart = Time.time;
+            hasTriggeredDeath = true;
+        }
+
+        if (hasTriggeredDeath && Time.time - deathStart > 5)
+        {
             PauseMenuSingleton.Active.Pause();
         }
     }
