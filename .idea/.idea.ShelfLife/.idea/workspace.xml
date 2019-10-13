@@ -4,9 +4,16 @@
     <list default="true" id="c00d88a0-b259-47ab-bcaf-d59ad86e82bd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ShelfLife/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ShelfLife/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ShelfLife/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ShelfLife/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Laser/Laser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Laser/Laser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Laser/RedirectionCube.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Laser/RedirectionCube.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/Door.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/Door.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravityGun/GravityGun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravityGun/GravityGun.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Laser/LaserTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Laser/LaserTrigger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Door.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Door.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Door.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Door.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Testing/Craig/DoorTesting.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing/Craig/DoorTesting.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Testing/Poly/ButtonActivator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Testing/Poly/ButtonDoor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Testing/Poly/ButtonPressurePlate.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Testing/Poly/KeyCardReciever.cs" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,6 +28,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Camera &amp; Zones/CameraSingleton.cs.meta" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Camera &amp; Zones/CameraSingleton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Tutorial_Info/Scripts/Editor/ReadmeEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/PlayerSingleton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Laser/RedirectionCube.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.postprocessing@2.1.7/PostProcessing/Runtime/Effects/AmbientOcclusion.cs" root0="SKIP_HIGHLIGHTING" />
@@ -31,8 +39,10 @@
     <setting file="file://$PROJECT_DIR$/Assets/GravityGun/GravityGun.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GravityGun/GrabableObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/PlayerRotationController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/KeyCardReciever.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/PlayerSpeedController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameWorld/Global.unity" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Button.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Combat/Combatant.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Camera &amp; Zones/CameraZone.prefab" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Door.cs" root0="FORCE_HIGHLIGHTING" />
@@ -53,13 +63,14 @@
         <option value="$PROJECT_DIR$/Assets/Player/PlayerRotationController.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/PlayerLifeController.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/PlayerSpeedController.cs" />
-        <option value="$PROJECT_DIR$/Assets/GravityGun/GravityGun.cs" />
         <option value="$PROJECT_DIR$/Assets/Camera &amp; Zones/CameraSingleton.cs" />
         <option value="$PROJECT_DIR$/Assets/Camera &amp; Zones/ZoneTrigger.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Door.cs" />
         <option value="$PROJECT_DIR$/Assets/Laser/RedirectionCube.cs" />
         <option value="$PROJECT_DIR$/Assets/Laser/Laser.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Door.cs" />
         <option value="$PROJECT_DIR$/Assets/Laser/LaserTrigger.cs" />
+        <option value="$PROJECT_DIR$/Assets/GravityGun/GravityGun.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Button.cs" />
       </list>
     </option>
   </component>
@@ -114,7 +125,7 @@
       <workItem from="1570907553022" duration="927000" />
       <workItem from="1570910084541" duration="424000" />
       <workItem from="1570911596745" duration="23000" />
-      <workItem from="1570918597014" duration="12612000" />
+      <workItem from="1570918597014" duration="14727000" />
     </task>
     <servers />
   </component>

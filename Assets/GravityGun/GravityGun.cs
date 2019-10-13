@@ -17,7 +17,7 @@ public class GravityGun : MonoBehaviour
         
         if (target != null)
         {
-            target.useGravity = false;
+            target.useGravity = true;
             target.velocity = Vector3.zero;
             target = null;
         }

@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    [SerializeField] public bool Open;
     [SerializeField] private Transform Hinge;
 
+    private float lastTriggerTime = 0;
+    
+    public void Trigger()
+    {
+        lastTriggerTime = Time.time;
+    }    
+    
     void Update()
     {
-        if (Open)
+        if (Time.time - lastTriggerTime < 0.5f)
         {
             Hinge.rotation = Quaternion.RotateTowards(Hinge.rotation, Quaternion.Euler(0, 90, 0), 720 * Time.deltaTime);
         }

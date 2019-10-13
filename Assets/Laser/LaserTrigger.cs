@@ -11,7 +11,7 @@ public class LaserTrigger : MonoBehaviour
         lastHit = Time.time;
         if (_door != null)
         {
-            _door.Open = true;
+            _door.Trigger();
         }
     }
 
@@ -22,7 +22,7 @@ public class LaserTrigger : MonoBehaviour
         {
             if (_door != null)
             {
-                _door.Open = false;
+                _door.Trigger();
             }
         }
     }

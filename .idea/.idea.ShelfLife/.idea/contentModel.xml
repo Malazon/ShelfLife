@@ -38,15 +38,10 @@
           <e p="PlayerSpeedController.cs" t="Include" />
         </e>
         <e p="Scripts" t="Include">
+          <e p="Button.cs" t="Include" />
           <e p="Door.cs" t="Include" />
+          <e p="KeyCardReciever.cs" t="Include" />
           <e p="SimpleCameraController.cs" t="Include" />
-        </e>
-        <e p="Testing" t="Include">
-          <e p="Poly" t="Include">
-            <e p="ButtonActivator.cs" t="Include" />
-            <e p="ButtonDoor.cs" t="Include" />
-            <e p="KeyCardReciever.cs" t="Include" />
-          </e>
         </e>
         <e p="Tutorial_Info" t="Include">
           <e p="Scripts" t="Include">

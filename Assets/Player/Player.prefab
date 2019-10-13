@@ -103,9 +103,10 @@ GameObject:
   - component: {fileID: 707553541398049917}
   - component: {fileID: 6267781316553480641}
   - component: {fileID: 2048944467}
+  - component: {fileID: 1337396035}
   m_Layer: 0
   m_Name: PlayerBodyCollider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,6 +171,22 @@ MonoBehaviour:
   recoveryRate: 50
   recoveryDelay: 5
   immortal: 0
+--- !u!114 &1337396035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4012818889690937051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e27e35c30a146fc458e73ae046190028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  recoveryRate: 50
+  recoveryDelay: 5
+  immortal: 0
 --- !u!1 &5845376116309550131
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,7 +204,7 @@ GameObject:
   - component: {fileID: 605471262300613079}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -240,7 +257,7 @@ MonoBehaviour:
   _mouseWorldPosition: {fileID: 1335318546}
   _playerAnimatorCodeHook: {fileID: 4992041609091458061}
   _lifeController: {fileID: 605471262300613079}
-  _combatant: {fileID: 2048944467}
+  _combatant: {fileID: 1337396035}
 --- !u!114 &7127031982151309504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,7 +285,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &1335318546
 MonoBehaviour:
@@ -380,6 +397,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Body
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896923634200417165, guid: 90bc5cf79330d3a40ab844d8000b19c3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8641798251010331365, guid: 90bc5cf79330d3a40ab844d8000b19c3,
         type: 3}
