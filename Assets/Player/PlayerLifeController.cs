@@ -6,6 +6,7 @@ public class PlayerLifeController : MonoBehaviour
 {
     private void Update()
     {
+        if (PauseMenuSingleton.Paused) return;
         if (PlayerSingleton.Active == null) return;
 
         var player = PlayerSingleton.Active;
@@ -13,7 +14,9 @@ public class PlayerLifeController : MonoBehaviour
         if (player.Combatant.HasDied)
         {
             PlayerSingleton.Active.PlayerAnimationCodeHook.SetDead(true);
-            Debug.Log("Played died.");
+            if (PauseMenuSingleton.Active == null) return;
+            PauseMenuSingleton.Active.DisablePause = true;
+            PauseMenuSingleton.Active.Pause();
         }
     }
 }

@@ -29,6 +29,7 @@ public class Combatant : MonoBehaviour
     
     public void LateUpdate()
     {
+
         if (!immortal)
         {
             _health = Mathf.Clamp(_health - _damageThisFrame, 0, maxHealth);
@@ -53,6 +54,8 @@ public class Combatant : MonoBehaviour
 
     public void DoDamage(float damage)
     {
+        
+        if (PauseMenuSingleton.Paused) return;
         _damageThisFrame += damage;
         _lastDamageTime = Time.time;
     }

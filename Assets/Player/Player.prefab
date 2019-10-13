@@ -102,8 +102,6 @@ GameObject:
   - component: {fileID: 5401711280375030348}
   - component: {fileID: 707553541398049917}
   - component: {fileID: 6267781316553480641}
-  - component: {fileID: 2048944467}
-  - component: {fileID: 1337396035}
   m_Layer: 0
   m_Name: PlayerBodyCollider
   m_TagString: Player
@@ -155,38 +153,6 @@ MonoBehaviour:
   recoveryRate: 50
   recoveryDelay: 5
   immortal: 0
---- !u!114 &2048944467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4012818889690937051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e27e35c30a146fc458e73ae046190028, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  recoveryRate: 50
-  recoveryDelay: 5
-  immortal: 0
---- !u!114 &1337396035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4012818889690937051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e27e35c30a146fc458e73ae046190028, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  recoveryRate: 50
-  recoveryDelay: 5
-  immortal: 0
 --- !u!1 &5845376116309550131
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,6 +168,7 @@ GameObject:
   - component: {fileID: 7720259956458502323}
   - component: {fileID: 1335318546}
   - component: {fileID: 605471262300613079}
+  - component: {fileID: 5540112919099407030}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -257,7 +224,7 @@ MonoBehaviour:
   _mouseWorldPosition: {fileID: 1335318546}
   _playerAnimatorCodeHook: {fileID: 4992041609091458061}
   _lifeController: {fileID: 605471262300613079}
-  _combatant: {fileID: 1337396035}
+  _combatant: {fileID: 6267781316553480641}
 --- !u!114 &7127031982151309504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,6 +278,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9714d88c2e39f54ea400accd3a4795e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5540112919099407030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5845376116309550131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dd0e140dba91b942a1be88844403d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PauseMenuPrefab: {fileID: 8291663216259049723, guid: 1b9bbee8902bf3d4289ec43a8a0d07b6,
+    type: 3}
+  PauseMenuInstance: {fileID: 0}
 --- !u!1001 &793829779524967877
 PrefabInstance:
   m_ObjectHideFlags: 0

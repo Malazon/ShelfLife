@@ -27,6 +27,10 @@
           <e p="Main Menu" t="Include">
             <e p="MainMenu_UI_Responses.cs" t="Include" />
           </e>
+          <e p="Pause Menu" t="Include">
+            <e p="PauseMenuController.cs" t="Include" />
+            <e p="PauseMenuSingleton.cs" t="Include" />
+          </e>
         </e>
         <e p="PanTexture.cs" t="Include" />
         <e p="Player" t="Include">
@@ -42,14 +46,6 @@
           <e p="Door.cs" t="Include" />
           <e p="KeyCardReciever.cs" t="Include" />
           <e p="SimpleCameraController.cs" t="Include" />
-        </e>
-        <e p="Tutorial_Info" t="Include">
-          <e p="Scripts" t="Include">
-            <e p="Editor" t="Include">
-              <e p="ReadmeEditor.cs" t="Include" />
-            </e>
-            <e p="Readme.cs" t="Include" />
-          </e>
         </e>
         <e p="Tutorial_Info" t="Include">
           <e p="Scripts" t="Include">

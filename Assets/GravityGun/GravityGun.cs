@@ -25,6 +25,8 @@ public class GravityGun : MonoBehaviour
     
     private void Update()
     {
+        if (PauseMenuSingleton.Paused) return;
+
         if (PlayerSingleton.Active == null) return;
         var player = PlayerSingleton.Active;
 

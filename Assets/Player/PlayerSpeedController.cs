@@ -10,6 +10,8 @@ public class PlayerSpeedController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (PauseMenuSingleton.Paused) return;
+
         if (PlayerSingleton.Active == null) return;
 
         var player = PlayerSingleton.Active;
