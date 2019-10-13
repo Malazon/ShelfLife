@@ -54,9 +54,9 @@ public class GravityGun : MonoBehaviour
                 
                 var colliderDistance = hit.distance;
 
-                if (target is null || collider.gameObject.CompareTag("Grabable"))
+                if (target == null || collider.gameObject.CompareTag("Grabable"))
                 {
-                    if (target is null)
+                    if (target == null)
                     {
                         target = colliderRigidBody;
                         targetDistance = colliderDistance;
@@ -76,7 +76,7 @@ public class GravityGun : MonoBehaviour
                 }
             }
 
-            if (target is null)
+            if (target == null)
             {
                 VisibleSphere.SetActive(true);
             }
@@ -90,7 +90,7 @@ public class GravityGun : MonoBehaviour
         else if (Input.GetMouseButtonDown(0)) // Throw Object
         {
             //Debug.Log("Throw");
-            if (target is null) return;
+            if (target == null) return;
 
             focused.gameObject.SetActive(false);
             unfocused.gameObject.SetActive(true);
@@ -102,7 +102,7 @@ public class GravityGun : MonoBehaviour
         else if (Input.GetMouseButtonUp(1)) // Drop Object
         {
             //Debug.Log("Drop");
-            if (target is null) return;
+            if (target == null) return;
 
             focused.gameObject.SetActive(false);
             unfocused.gameObject.SetActive(false);
@@ -113,7 +113,7 @@ public class GravityGun : MonoBehaviour
         else if (Input.GetMouseButton(1)) // Carry Object
         {
             //Debug.Log("Carry");
-            if (target is null) return;
+            if (target == null) return;
 
             focused.gameObject.SetActive(true);
             unfocused.gameObject.SetActive(false);
@@ -130,7 +130,7 @@ public class GravityGun : MonoBehaviour
             focused.gameObject.SetActive(false);
             unfocused.gameObject.SetActive(false);
 
-            if (target is null) return;
+            if (target == null) return;
             target.isKinematic = false;
             target = null;
         }
