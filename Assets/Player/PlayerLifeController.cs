@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// This should be updated to depend on a combatant controller on the player.
 public class PlayerLifeController : MonoBehaviour
 {
     #region Player Health
