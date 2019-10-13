@@ -40,6 +40,7 @@ public class PauseMenuController : MonoBehaviour
     public void LoadMainMenu ()
     {
         SceneManager.LoadScene("Main Menu");
+        PauseMenuSingleton.Active.Unpause();
     }
 
     private void Update()
@@ -51,6 +52,7 @@ public class PauseMenuController : MonoBehaviour
             if (PlayerSingleton.Active != null && PlayerSingleton.Active.Combatant.HasDied)
             {
                 SceneManager.LoadScene("Main Menu");
+                PauseMenuSingleton.Active.Unpause();
             }
             else
             {

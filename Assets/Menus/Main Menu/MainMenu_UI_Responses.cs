@@ -61,8 +61,7 @@ public class MainMenu_UI_Responses : MonoBehaviour
             Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, zoomFov, Time.deltaTime * smoothFactor);
             return;
         }
-
-
+        
         PollAboutSectionAndUpdate();
 
     }
