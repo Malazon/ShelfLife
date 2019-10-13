@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 7127031982151309504}
   - component: {fileID: 7720259956458502323}
   - component: {fileID: 1335318546}
+  - component: {fileID: 605471262300613079}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -112,6 +113,7 @@ MonoBehaviour:
   _rigidBody: {fileID: 7720259956458502323}
   _mouseWorldPosition: {fileID: 1335318546}
   _playerAnimatorCodeHook: {fileID: 4992041609091458061}
+  _lifeController: {fileID: 605471262300613079}
 --- !u!114 &7127031982151309504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +155,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e7c28629f36c954686d9df6833e9dfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &605471262300613079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5845376116309550131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9714d88c2e39f54ea400accd3a4795e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 4
 --- !u!1001 &793829779524967877
 PrefabInstance:
   m_ObjectHideFlags: 0

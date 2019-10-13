@@ -14,6 +14,8 @@ public class PlayerSpeedController : MonoBehaviour
 
         var player = PlayerSingleton.Active;
 
+        if (player.IsDead) return;
+
         if (CameraSingleton.Active == null) return;
 
         var camera = CameraSingleton.Active;
