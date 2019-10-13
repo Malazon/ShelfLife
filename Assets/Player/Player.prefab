@@ -111,7 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidBody: {fileID: 7720259956458502323}
   _mouseWorldPosition: {fileID: 1335318546}
-  _playerAnimatorCodeHook: {fileID: 0}
+  _playerAnimatorCodeHook: {fileID: 4992041609091458061}
 --- !u!114 &7127031982151309504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,3 +303,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1138870131947868744}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4992041609091458061 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5370928746781193797, guid: 90bc5cf79330d3a40ab844d8000b19c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1138870131947868744}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 016a5d9abb4a08d43830315bef6fb0c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

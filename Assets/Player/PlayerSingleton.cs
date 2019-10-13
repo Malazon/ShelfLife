@@ -24,7 +24,5 @@ public class PlayerSingleton : MonoBehaviour
             }
 
         Active = this;
-
-        _playerAnimatorCodeHook = GetComponentInChildren<PlayerAnimationCodeHook>();
     }
 }
