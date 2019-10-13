@@ -8,14 +8,16 @@ public class PlayerRotationController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (PlayerSingleton.Active is null) return;
+        if (PlayerSingleton.Active == null) return;
 
         var player = PlayerSingleton.Active;
+
+        if (player.IsDead) return;
 
         // Clear the angular velocity
         player.RigidBody.angularVelocity = Vector3.zero;
         
-        if (player.MouseWorldPosition.Position is null)
+        if (player.MouseWorldPosition.Position == null)
         {
             // If the ground is not hit, ensure the pawn is upright.
             var planeTargetDirection = Vector3.ProjectOnPlane(player.RigidBody.rotation * Vector3.forward, Vector3.up);

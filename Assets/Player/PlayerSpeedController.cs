@@ -4,20 +4,19 @@ public class PlayerSpeedController : MonoBehaviour
 {
     [SerializeField] private float cooldown = 0.25f;
     [SerializeField] private float maxSpeed = 1f;
-    [SerializeField] private Animator playerAnimator = null;
 
 
-    private const string animForwardFloatKey = "Forward";
-    private const string animStrafeFloatKey = "Strafe";
 
     // Update is called once per frame
     private void Update()
     {
-        if (PlayerSingleton.Active is null) return;
+        if (PlayerSingleton.Active == null) return;
 
         var player = PlayerSingleton.Active;
 
-        if (CameraSingleton.Active is null) return;
+        if (player.IsDead) return;
+
+        if (CameraSingleton.Active == null) return;
 
         var camera = CameraSingleton.Active;
 
@@ -31,11 +30,13 @@ public class PlayerSpeedController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.D)) input += Vector3.right;
 
-        if (playerAnimator)
+        // This won't make sense with analog input
+        if (input.x != 0 && input.z != 0)
         {
-            playerAnimator.SetFloat(animForwardFloatKey,    Vector3.Dot(input, player.transform.forward));
-            playerAnimator.SetFloat(animStrafeFloatKey,     Vector3.Dot(input, player.transform.right));
+            input.x = Mathf.Clamp(input.x, -0.707f, 0.707f);
+            input.z = Mathf.Clamp(input.z, -0.707f, 0.707f);
         }
+
 
         var newSpeed = Mathf.Clamp(
             player.RigidBody.velocity.magnitude + maxSpeed / cooldown * Time.deltaTime,
@@ -45,6 +46,20 @@ public class PlayerSpeedController : MonoBehaviour
 
         var planeDirection = Vector3.ProjectOnPlane(camera.transform.rotation * Vector3.forward, Vector3.up);
 
-        player.RigidBody.velocity = Quaternion.LookRotation(planeDirection) * input * newSpeed;
+        player.RigidBody.velocity = Quaternion.LookRotation(planeDirection) * Quaternion.Euler(0, camera.transform.eulerAngles.y, 0) * input * newSpeed;
+
+        #region Animation Signals
+        player.PlayerAnimationCodeHook.SetForward(Vector3.Dot(input, player.transform.forward));
+        player.PlayerAnimationCodeHook.SetStrafe(Vector3.Dot(input, player.transform.right));
+
+        if (input != Vector3.zero)
+        {
+            player.PlayerAnimationCodeHook.SetMoving(true);
+        }
+        else
+        {
+            player.PlayerAnimationCodeHook.SetMoving(false);
+        }
+        #endregion
     }
 }

@@ -6,7 +6,7 @@ public class ZoneTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (CameraSingleton.Active is null) return;
+        if (CameraSingleton.Active == null) return;
 
         if (other.GetComponentInParent<PlayerSingleton>() != null)
             CameraSingleton.Active.TargetLocation = CameraLocation.transform;
