@@ -27,7 +27,7 @@ public class MouseWorldPosition : MonoBehaviour
         _frame = Time.frameCount;
         
         
-        if (CameraSingleton.Active is null) return;
+        if (CameraSingleton.Active == null) return;
 
         var camera = CameraSingleton.Active;
 

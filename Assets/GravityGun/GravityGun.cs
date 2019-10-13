@@ -14,7 +14,7 @@ public class GravityGun : MonoBehaviour
 
     private void Update()
     {
-        if (PlayerSingleton.Active is null) return;
+        if (PlayerSingleton.Active == null) return;
         var player = PlayerSingleton.Active;
 
         if (Input.GetMouseButtonDown(1)) // Pick up object
