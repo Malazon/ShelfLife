@@ -23,14 +23,14 @@ public class Door : MonoBehaviour
             // Open?
             HandleDoorSounds(openDoor: true);
 
-            Hinge.rotation = Quaternion.RotateTowards(Hinge.rotation, Quaternion.Euler(0, 90, 0), 720 * Time.deltaTime);
+            Hinge.localRotation = Quaternion.RotateTowards(Hinge.localRotation, Quaternion.Euler(0, 90, 0), 720 * Time.deltaTime);
         }
         else
         {
             // Close?
             HandleDoorSounds(openDoor: false);
 
-            Hinge.rotation = Quaternion.RotateTowards(Hinge.rotation, Quaternion.identity, 720 * Time.deltaTime);
+            Hinge.localRotation = Quaternion.RotateTowards(Hinge.localRotation, Quaternion.identity, 720 * Time.deltaTime);
         }
     }
 
