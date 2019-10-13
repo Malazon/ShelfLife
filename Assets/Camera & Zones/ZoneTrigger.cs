@@ -30,7 +30,7 @@ public class ZoneTrigger : MonoBehaviour
         if (CameraSingleton.Active == null) return;
 
         if (other.GetComponentInParent<PlayerSingleton>() != null)
-            CameraSingleton.Active.TargetLocation = CameraLocation.transform;
+            CameraSingleton.Active.TargetTransform = CameraLocation.transform;
         
         allLights = allLights.Where(l => l != null).ToList();
 
