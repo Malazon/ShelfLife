@@ -87,10 +87,5 @@ public class PauseMenuSingleton : MonoBehaviour
         {
             Pause();
         }
-
-        if (Input.GetKeyDown(KeyCode.F1))
-        {
-            Win();
-        }
     }
 }
