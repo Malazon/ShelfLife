@@ -12,8 +12,13 @@ public class Turret : MonoBehaviour
 
     [SerializeField] private ParticleSystem _particleSystem;
 
+    [SerializeField] private float _range;
+    
     [SerializeField] private float _sweepRate = 15f;
 
+    [SerializeField] private Material _sweepMaterial;
+    [SerializeField] private Material _trackMaterial;
+    
     private float sweepDirection = 1;
     
     private float lastSeen = -1000;
@@ -24,18 +29,23 @@ public class Turret : MonoBehaviour
 
         if (sweepDirection == -1)
         {
-            if (currentAngle > 180 && currentAngle < 345)
+            if (currentAngle > 180 && currentAngle < 337.75)
             {
                 sweepDirection = 1;
             }
         }
         else
         {
-            if (currentAngle < 180 && currentAngle > 15)
+            if (currentAngle < 180 && currentAngle > 22.25)
             {
                 sweepDirection = -1;
             }
         }     
+
+        if (_sweepMaterial != null)
+        {
+            _lineRenderer.material = _sweepMaterial;
+        }
         
         _turretTop.transform.Rotate(Vector3.up, Time.deltaTime * _sweepRate * sweepDirection);
     }
@@ -52,6 +62,11 @@ public class Turret : MonoBehaviour
         var localTransform = _turretTop.transform.localRotation.eulerAngles.y -
                              _turretTop.transform.rotation.eulerAngles.y;
 
+        if (_trackMaterial != null)
+        {
+            _lineRenderer.material = _trackMaterial;
+        }
+
         var newAngle = desiredAngle + localTransform;
 
         
@@ -63,7 +78,7 @@ public class Turret : MonoBehaviour
             newAngle -= 360;
         }
         
-        if (newAngle < 15 || newAngle > 345)
+        if (newAngle < 22.25 || newAngle > 337.75)
         {
             _turretTop.transform.rotation = Quaternion.Euler(0, newAngle, 0);
         }
@@ -74,7 +89,7 @@ public class Turret : MonoBehaviour
         var direction = _turretTop.transform.rotation * Vector3.left;
         var origin = _particleSystem.transform.position;
 
-        if (Physics.Raycast( origin, direction, out RaycastHit hit, 1000))
+        if (Physics.Raycast( origin, direction, out RaycastHit hit, _range))
         {
             _lineRenderer.SetPositions(new []{origin, hit.point});
 
@@ -86,7 +101,7 @@ public class Turret : MonoBehaviour
         } 
         else
         {
-            _lineRenderer.SetPositions(new []{origin, origin + direction * 100});
+            _lineRenderer.SetPositions(new []{origin, origin + direction * _range});
         }
     }
 

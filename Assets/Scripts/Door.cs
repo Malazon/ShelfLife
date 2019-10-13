@@ -36,7 +36,7 @@ public class Door : MonoBehaviour
 
     private void HandleDoorSounds(bool openDoor)
     {
-        if (!doorSoundSource.isPlaying)
+        if (doorSoundSource != null && !doorSoundSource.isPlaying)
         {
             if (openDoor)
             {
