@@ -22,13 +22,13 @@ public class PlayerSpeedController : MonoBehaviour
 
         var input = Vector3.zero;
 
-        if (Input.GetKey(KeyCode.W)) input += Vector3.forward;
+        if (Input.GetKey(KeyCode.W)) input += Vector3.back;
 
-        if (Input.GetKey(KeyCode.S)) input += Vector3.back;
+        if (Input.GetKey(KeyCode.S)) input += Vector3.forward;
 
-        if (Input.GetKey(KeyCode.A)) input += Vector3.left;
+        if (Input.GetKey(KeyCode.A)) input += Vector3.right;
 
-        if (Input.GetKey(KeyCode.D)) input += Vector3.right;
+        if (Input.GetKey(KeyCode.D)) input += Vector3.left;
 
         // This won't make sense with analog input
         if (input.x != 0 && input.z != 0)
@@ -44,13 +44,19 @@ public class PlayerSpeedController : MonoBehaviour
             maxSpeed
         );
 
-        var planeDirection = Vector3.ProjectOnPlane(camera.transform.rotation * Vector3.forward, Vector3.up);
+        var cameraRotation = camera.Camera.worldToCameraMatrix.MultiplyVector(Vector3.forward);
 
-        player.RigidBody.velocity = Quaternion.LookRotation(planeDirection) * Quaternion.Euler(0, camera.transform.eulerAngles.y, 0) * input * newSpeed;
+        cameraRotation = Vector3.ProjectOnPlane(cameraRotation, Vector3.up).normalized;
+        
+        Debug.DrawRay(player.transform.position, cameraRotation, Color.red, 0);
+
+        player.RigidBody.velocity = Quaternion.LookRotation(cameraRotation, Vector3.up) * input * newSpeed;
+        
+        Debug.Log(newSpeed);
 
         #region Animation Signals
-        player.PlayerAnimationCodeHook.SetForward(Vector3.Dot(input, player.transform.forward));
-        player.PlayerAnimationCodeHook.SetStrafe(Vector3.Dot(input, player.transform.right));
+        player.PlayerAnimationCodeHook.SetForward(Vector3.Dot(player.RigidBody.velocity, player.transform.forward));
+        player.PlayerAnimationCodeHook.SetStrafe(Vector3.Dot(player.RigidBody.velocity, player.transform.right));
 
         if (input != Vector3.zero)
         {

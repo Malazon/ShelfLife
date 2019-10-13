@@ -29,6 +29,7 @@ public class Laser : MonoBehaviour
 
             endPosition = hit.point;
             
+            // Check for cube / collision
             if (hit.collider.TryGetComponent(out RedirectionCube Cube))
             {
                 if (_lastCubeHit != null && _lastCubeHit != Cube)
@@ -43,6 +44,13 @@ public class Laser : MonoBehaviour
                 _lastCubeHit.StopBeingHit();
                 _lastCubeHit = null;
             }
+            
+            // Check for combatant
+            if (hit.collider.TryGetComponent(out Combatant combatant))
+            {
+                combatant.DoDamage(Time.deltaTime * 100);
+            }
+
         }
         else if (_lastCubeHit != null)
         {

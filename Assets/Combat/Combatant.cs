@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class PlayerCombat : MonoBehaviour
+public class Combatant : MonoBehaviour
 {
     [SerializeField] private float maxHealth = 100;
     [SerializeField] private float recoveryRate = 50;

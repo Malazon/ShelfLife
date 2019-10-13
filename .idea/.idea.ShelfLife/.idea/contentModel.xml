@@ -21,15 +21,29 @@
           <e p="Laser.cs" t="Include" />
           <e p="RedirectionCube.cs" t="Include" />
         </e>
+        <e p="Menus" t="Include">
+          <e p="Main Menu" t="Include">
+            <e p="MainMenu_UI_Responses.cs" t="Include" />
+          </e>
+        </e>
         <e p="PanTexture.cs" t="Include" />
         <e p="Player" t="Include">
           <e p="MouseWorldPosition.cs" t="Include" />
+          <e p="PlayerAnimationCodeHook.cs" t="Include" />
+          <e p="PlayerLifeController.cs" t="Include" />
           <e p="PlayerRotationController.cs" t="Include" />
           <e p="PlayerSingleton.cs" t="Include" />
           <e p="PlayerSpeedController.cs" t="Include" />
         </e>
         <e p="Scripts" t="Include">
           <e p="SimpleCameraController.cs" t="Include" />
+        </e>
+        <e p="Testing" t="Include">
+          <e p="Poly" t="Include">
+            <e p="ButtonActivator.cs" t="Include" />
+            <e p="ButtonDoor.cs" t="Include" />
+            <e p="KeyCardReciever.cs" t="Include" />
+          </e>
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />
