@@ -42,9 +42,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.21
-  m_Height: 2
+  m_Height: 1.88
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0.000000059604645, y: 0.89, z: -0.00000008940697}
 --- !u!1 &5845376116309550131
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,6 +304,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 5381360941420944928, guid: 90bc5cf79330d3a40ab844d8000b19c3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8838525154775977490, guid: 90bc5cf79330d3a40ab844d8000b19c3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90bc5cf79330d3a40ab844d8000b19c3, type: 3}
