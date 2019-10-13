@@ -12,7 +12,7 @@ public class PlayerRotationController : MonoBehaviour
 
         var player = PlayerSingleton.Active;
 
-        if (player.IsDead) return;
+        if (player.Combatant.HasDied) return;
 
         // Clear the angular velocity
         player.RigidBody.angularVelocity = Vector3.zero;

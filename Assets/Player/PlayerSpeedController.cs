@@ -14,7 +14,7 @@ public class PlayerSpeedController : MonoBehaviour
 
         var player = PlayerSingleton.Active;
 
-        if (player.IsDead) return;
+        if (player.Combatant.HasDied) return;
 
         if (CameraSingleton.Active == null) return;
 
@@ -51,8 +51,6 @@ public class PlayerSpeedController : MonoBehaviour
         Debug.DrawRay(player.transform.position, cameraRotation, Color.red, 0);
 
         player.RigidBody.velocity = Quaternion.LookRotation(cameraRotation, Vector3.up) * input * newSpeed;
-        
-        Debug.Log(newSpeed);
 
         #region Animation Signals
         player.PlayerAnimationCodeHook.SetForward(Vector3.Dot(player.RigidBody.velocity, player.transform.forward));

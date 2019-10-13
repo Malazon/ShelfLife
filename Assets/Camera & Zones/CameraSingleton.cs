@@ -29,9 +29,9 @@ public class CameraSingleton : MonoBehaviour
 
     private void Update()
     {
-        transform.position =
-            Vector3.MoveTowards(transform.position, TargetLocation.position, moveRate * Time.deltaTime);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, TargetLocation.rotation,
+        _camera.transform.position =
+            Vector3.MoveTowards(_camera.transform.position, TargetLocation.position, moveRate * Time.deltaTime);
+        _camera.transform.rotation = Quaternion.RotateTowards(_camera.transform.rotation, TargetLocation.rotation,
             turnRate * Time.deltaTime);
     }
 }

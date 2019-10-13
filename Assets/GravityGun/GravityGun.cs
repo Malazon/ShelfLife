@@ -12,6 +12,17 @@ public class GravityGun : MonoBehaviour
 
     private Rigidbody target;
 
+    private void tryResetTarget()
+    {
+        
+        if (target != null)
+        {
+            target.useGravity = false;
+            target.velocity = Vector3.zero;
+            target = null;
+        }
+    }
+    
     private void Update()
     {
         if (PlayerSingleton.Active == null) return;
@@ -24,12 +35,8 @@ public class GravityGun : MonoBehaviour
             focused.gameObject.SetActive(false);
             unfocused.gameObject.SetActive(true);
 
-            if (target != null)
-            {
-                target.isKinematic = false;
-                target = null;
-            }
-
+            tryResetTarget();
+            
             VisibleSphere.SetActive(true);
             
             Debug.DrawRay(this.transform.position, Vector3.up, Color.blue, 5f);
@@ -82,7 +89,7 @@ public class GravityGun : MonoBehaviour
             }
             else
             {
-                target.isKinematic = true;
+                target.useGravity = false;
                 VisibleSphere.SetActive(false);
                 Debug.DrawRay(target.position, Vector3.up, Color.cyan, 5f);
             }
@@ -95,7 +102,8 @@ public class GravityGun : MonoBehaviour
             focused.gameObject.SetActive(false);
             unfocused.gameObject.SetActive(true);
 
-            target.isKinematic = false;
+            // Dont use reset here to set velocity manually.
+            target.useGravity = true;
             target.velocity = (player.RigidBody.rotation * Vector3.forward).normalized * ThrowSpeed;
             target = null;
         }
@@ -107,8 +115,7 @@ public class GravityGun : MonoBehaviour
             focused.gameObject.SetActive(false);
             unfocused.gameObject.SetActive(false);
 
-            target.isKinematic = false;
-            target = null;
+            tryResetTarget();
         }
         else if (Input.GetMouseButton(1)) // Carry Object
         {
@@ -118,8 +125,11 @@ public class GravityGun : MonoBehaviour
             focused.gameObject.SetActive(true);
             unfocused.gameObject.SetActive(false);
 
-            target.transform.position =
-                Vector3.MoveTowards(target.position, this.transform.position, MoveSpeed * Time.deltaTime);
+            var holdPosition = this.transform.position + Vector3.down;
+            var stepPosition = 
+                Vector3.MoveTowards(target.position, holdPosition, MoveSpeed * Time.deltaTime);
+            
+            target.MovePosition(stepPosition);
             target.transform.rotation = this.transform.rotation;
         }
         else // Drop Object
@@ -130,9 +140,7 @@ public class GravityGun : MonoBehaviour
             focused.gameObject.SetActive(false);
             unfocused.gameObject.SetActive(false);
 
-            if (target == null) return;
-            target.isKinematic = false;
-            target = null;
+            tryResetTarget();
         }
     }
 }
