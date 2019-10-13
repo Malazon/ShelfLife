@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c00d88a0-b259-47ab-bcaf-d59ad86e82bd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ShelfLife/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ShelfLife/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ShelfLife/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ShelfLife/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Combat/Combatant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Combat/Combatant.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravityGun/GravityGun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravityGun/GravityGun.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Menus/Pause Menu/Pause Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Menus/Pause Menu/Pause Menu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerLifeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerLifeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerRotationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerRotationController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerSpeedController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerSpeedController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Testing/Craig/DoorTesting.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing/Craig/DoorTesting.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Menus/Pause Menu/PauseMenuController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Menus/Pause Menu/PauseMenuController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Menus/Pause Menu/PauseMenuSingleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Menus/Pause Menu/PauseMenuSingleton.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,9 +62,9 @@
         <option value="$PROJECT_DIR$/Assets/Player/PlayerSpeedController.cs" />
         <option value="$PROJECT_DIR$/Assets/GravityGun/GravityGun.cs" />
         <option value="$PROJECT_DIR$/Assets/Combat/Combatant.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/PlayerLifeController.cs" />
         <option value="$PROJECT_DIR$/Assets/Menus/Pause Menu/PauseMenuSingleton.cs" />
         <option value="$PROJECT_DIR$/Assets/Menus/Pause Menu/PauseMenuController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/PlayerLifeController.cs" />
       </list>
     </option>
   </component>
@@ -129,7 +120,7 @@
       <workItem from="1570910084541" duration="424000" />
       <workItem from="1570911596745" duration="23000" />
       <workItem from="1570918597014" duration="14727000" />
-      <workItem from="1570979999127" duration="1817000" />
+      <workItem from="1570979999127" duration="2289000" />
     </task>
     <servers />
   </component>

@@ -64,16 +64,10 @@ public class PauseMenuSingleton : MonoBehaviour
     void Update()
     {
         if (DisablePause) return;
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (_paused) return;
+        if (Input.GetKeyUp(KeyCode.Escape))
         {
-            if (_paused)
-            {
-                Unpause();
-            }
-            else
-            {
-                Pause();
-            }
+            Pause();
         }
     }
 }
