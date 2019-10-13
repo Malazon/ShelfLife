@@ -5,22 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu_UI_Responses : MonoBehaviour
 {
-    const string startLevel = "Room 1";
-    const string characterDanceKey = "IsDancing";
 
     int zoomFov = 180;
     int defautFov = 60;
     float smoothFactor = 5f;
     bool clickedPlay;
-    bool shouldBeInAboutSection;
+    bool changedPos;
 
 
     [SerializeField] Transform pos2;
     [SerializeField] Transform pos1;
     [SerializeField] AudioSource source;
     [SerializeField] AudioClip buttonSFX;
-    [SerializeField] private GameObject uiHinge = null;
-    [SerializeField] private Animator mainMenuCharacterAnimator = null;
 
     public void OnPlayClicked()
     {
@@ -31,17 +27,19 @@ public class MainMenu_UI_Responses : MonoBehaviour
     void loadFirstLevel()
     {
         SceneManager.LoadScene("Global");
-        SceneManager.LoadScene(startLevel, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("PrettyTesting",LoadSceneMode.Additive);
     }
 
     public void OnAbout_Clicked()
     {
-        shouldBeInAboutSection = true;
+        // TODO:  Open About page!
+        Debug.LogWarning("OnAbout_Clicked() called but not implemented yet!");
+        changedPos = true;
     }
 
     public void OnAbout_Exit_Clicked()
     {
-        shouldBeInAboutSection = false;
+        changedPos = false;
     }
 
     public void OnExit_Clicked()
@@ -59,37 +57,15 @@ public class MainMenu_UI_Responses : MonoBehaviour
         if(clickedPlay)
         {
             Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, zoomFov, Time.deltaTime * smoothFactor);
-            return;
         }
 
-
-        PollAboutSectionAndUpdate();
-
-    }
-
-    private void PollAboutSectionAndUpdate()
-    {
-        Transform txfmToRotate = uiHinge.transform;
-
-        if(mainMenuCharacterAnimator != null)
+        if(changedPos)
         {
-            if(shouldBeInAboutSection)
-            {
-                mainMenuCharacterAnimator.SetBool(characterDanceKey, true);
-            }
-            else
-            {
-                mainMenuCharacterAnimator.SetBool(characterDanceKey, false);
-            }
-        }
-
-        if (shouldBeInAboutSection)
-        {
-            txfmToRotate.rotation = Quaternion.Lerp(txfmToRotate.rotation, pos2.rotation, Time.deltaTime * smoothFactor);
+            Camera.main.transform.rotation = Quaternion.Lerp(Camera.main.transform.rotation, pos2.rotation, Time.deltaTime * smoothFactor);
         }
         else
         {
-            txfmToRotate.rotation = Quaternion.Lerp(txfmToRotate.rotation, pos1.rotation, Time.deltaTime * smoothFactor);
+            Camera.main.transform.rotation = Quaternion.Lerp(Camera.main.transform.rotation, pos1.rotation, Time.deltaTime * smoothFactor);
         }
     }
 
