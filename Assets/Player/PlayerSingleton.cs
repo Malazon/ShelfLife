@@ -4,11 +4,14 @@ public class PlayerSingleton : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rigidBody;
     [SerializeField] private MouseWorldPosition _mouseWorldPosition;
+    [SerializeField] private PlayerAnimationCodeHook _playerAnimatorCodeHook = null;
+
     public static PlayerSingleton Active { get; private set; }
 
     public Rigidbody RigidBody => _rigidBody;
 
     public MouseWorldPosition MouseWorldPosition => _mouseWorldPosition;
+    public PlayerAnimationCodeHook PlayerAnimationCodeHook => _playerAnimatorCodeHook;
 
     private void Start()
     {
@@ -21,5 +24,7 @@ public class PlayerSingleton : MonoBehaviour
             }
 
         Active = this;
+
+        _playerAnimatorCodeHook = GetComponentInChildren<PlayerAnimationCodeHook>();
     }
 }
