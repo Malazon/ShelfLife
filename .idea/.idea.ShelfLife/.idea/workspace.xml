@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c00d88a0-b259-47ab-bcaf-d59ad86e82bd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ShelfLife/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ShelfLife/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ShelfLife/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ShelfLife/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravityGun/GrabableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravityGun/GrabableObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravityGun/GravityGun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravityGun/GravityGun.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Testing/Craig/TurretTesting.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing/Craig/TurretTesting.unity" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -103,7 +99,7 @@
       <workItem from="1570907553022" duration="927000" />
       <workItem from="1570910084541" duration="424000" />
       <workItem from="1570911596745" duration="23000" />
-      <workItem from="1570918597014" duration="583000" />
+      <workItem from="1570918597014" duration="1257000" />
     </task>
     <servers />
   </component>
