@@ -32,8 +32,8 @@ public class ZoneTrigger : MonoBehaviour
         if (other.GetComponentInParent<PlayerSingleton>() != null)
             CameraSingleton.Active.TargetLocation = CameraLocation.transform;
         
-        
-        
+        allLights = allLights.Where(l => l != null).ToList();
+
         foreach (var l in allLights.Except(lights))
         {
             l.gameObject.SetActive(false);
