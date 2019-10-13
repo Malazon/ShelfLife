@@ -8,6 +8,8 @@ public class PauseMenuController : MonoBehaviour
 {
     [SerializeField] private GameObject DeathParent;
     [SerializeField] private GameObject PauseParent;
+    [SerializeField] private AudioSource pauseSFXSource;
+    [SerializeField] private AudioClip pauseSFXClip;
 
     private void OnEnable()
     {
@@ -25,8 +27,24 @@ public class PauseMenuController : MonoBehaviour
         }
     }
 
+    public void playButtonSFX()
+    {
+        pauseSFXSource.PlayOneShot(pauseSFXClip);
+    }
+
+    public void callPlayerUnpause()
+    {
+        PauseMenuSingleton.Active.Unpause();
+    }
+
+    public void LoadMainMenu ()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
+
     private void Update()
     {
+
         if (Input.GetKeyUp(KeyCode.Escape))
         {
             
