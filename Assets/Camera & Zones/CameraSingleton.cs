@@ -24,7 +24,7 @@ public class CameraSingleton : MonoBehaviour
             }
 
         Active = this;
-        TargetLocation = transform;
+        TargetLocation = _camera.transform;
     }
 
     private void Update()
