@@ -110,7 +110,10 @@ MonoBehaviour:
   _turretTop: {fileID: 3255536378148443414}
   _lineRenderer: {fileID: 8204178886107706622}
   _particleSystem: {fileID: 8204178886107706623}
+  _range: 15
   _sweepRate: 15
+  _sweepMaterial: {fileID: 2100000, guid: 7ca64c6239cc9f44d807deee187db5f6, type: 2}
+  _trackMaterial: {fileID: 2100000, guid: cacf27f9f8ae49249807f7ea0928e855, type: 2}
 --- !u!1 &3253113382564163484
 GameObject:
   m_ObjectHideFlags: 0
