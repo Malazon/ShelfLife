@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &5984918641578365966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3204803758018253489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 016a5d9abb4a08d43830315bef6fb0c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 8406138100178324952}
 --- !u!1 &4012818889690937051
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,43 +295,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5487268155282654734, guid: 90bc5cf79330d3a40ab844d8000b19c3,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5487268155282654734, guid: 90bc5cf79330d3a40ab844d8000b19c3,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 5381360941420944928, guid: 90bc5cf79330d3a40ab844d8000b19c3,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8838525154775977490, guid: 90bc5cf79330d3a40ab844d8000b19c3,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90bc5cf79330d3a40ab844d8000b19c3, type: 3}
 --- !u!4 &8656976079776252077 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8641798251010331365, guid: 90bc5cf79330d3a40ab844d8000b19c3,
-    type: 3}
-  m_PrefabInstance: {fileID: 1138870131947868744}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3204803758018253489 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2573759152657383673, guid: 90bc5cf79330d3a40ab844d8000b19c3,
-    type: 3}
-  m_PrefabInstance: {fileID: 1138870131947868744}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &8406138100178324952 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 8891950960051462032, guid: 90bc5cf79330d3a40ab844d8000b19c3,
     type: 3}
   m_PrefabInstance: {fileID: 1138870131947868744}
   m_PrefabAsset: {fileID: 0}

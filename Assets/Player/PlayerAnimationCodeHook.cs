@@ -2,9 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public struct PlayerCharacterTrinket
+{
+    public GameObject trinket;
+    public GameObject anchor;
+    public Vector3 offset;
+    public Vector3 eulerRotation;
+
+    public void SetTrinketToAnchorPositionWithOffset()
+    {
+        trinket.transform.parent = anchor.transform;
+        trinket.transform.localPosition = offset;
+        trinket.transform.localRotation = Quaternion.Euler(eulerRotation);
+    }
+}
+
 public class PlayerAnimationCodeHook : MonoBehaviour
 {
     [SerializeField] Animator animator = null;
+    [SerializeField] PlayerCharacterTrinket mainHand;
 
     private const string isDead_ParamName = "IsDead";
     private const string isFiring_ParamName = "IsFiring";
@@ -13,6 +30,19 @@ public class PlayerAnimationCodeHook : MonoBehaviour
     private const string forward_ParamName = "Forward";
     private const string strafe_ParamName = "Strafe";
 
+    private void Start()
+    {
+        if(mainHand.trinket && mainHand.anchor)
+        {
+            mainHand.SetTrinketToAnchorPositionWithOffset();
+        }
+    }
+
+    /// <summary>
+    /// This should be done as soon as you block rotation and translation of the player
+    ///  after they've met any loss conditions for the game
+    /// </summary>
+    /// <param name="state"> true will set the state machine in motion to land in the Death state</param>
     public void SetDead(bool state)
     {
         animator.SetBool(isDead_ParamName, state);

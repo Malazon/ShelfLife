@@ -28,6 +28,13 @@ public class PlayerSpeedController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.D)) input += Vector3.right;
 
+        // This won't make sense with analog input
+        if (input.x != 0 && input.z != 0)
+        {
+            input.x = Mathf.Clamp(input.x, -0.707f, 0.707f);
+            input.z = Mathf.Clamp(input.z, -0.707f, 0.707f);
+        }
+
 
         var newSpeed = Mathf.Clamp(
             player.RigidBody.velocity.magnitude + maxSpeed / cooldown * Time.deltaTime,
