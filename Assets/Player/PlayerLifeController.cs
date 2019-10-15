@@ -11,17 +11,18 @@ public class PlayerLifeController : MonoBehaviour
         if (PauseMenuSingleton.Paused) return;
         if (PlayerSingleton.Active == null) return;
 
-        var player = PlayerSingleton.Active;
+        var playerCombatant = PlayerSingleton.Combatant;
 
-        if (player.transform.position.y < -5)
+        if (playerCombatant.transform.position.y < -5)
         {
-            player.Combatant.Kill();
+            playerCombatant.Kill();
             PauseMenuSingleton.Active.Pause();
         }
         
-        if (player.Combatant.HasDied && !hasTriggeredDeath)
+        if (playerCombatant.HasDied && !hasTriggeredDeath)
         {
-            PlayerSingleton.Active.PlayerAnimationCodeHook.SetDead(true);
+            PlayerSingleton.PlayerAnimationCodeHook.SetDead(true);
+            
             if (PauseMenuSingleton.Active == null) return;
             PauseMenuSingleton.Active.DisablePause = true;
             deathStart = Time.time;

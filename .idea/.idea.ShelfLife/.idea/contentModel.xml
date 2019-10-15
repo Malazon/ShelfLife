@@ -8,15 +8,25 @@
       <e p="Assets" t="Include">
         <e p="Camera &amp; Zones" t="Include">
           <e p="CameraSingleton.cs" t="Include" />
+          <e p="SimpleCameraController.cs" t="Include" />
           <e p="ZoneTrigger.cs" t="Include" />
         </e>
         <e p="Mechanics" t="Include">
+          <e p="Button" t="Include">
+            <e p="Button.cs" t="Include" />
+          </e>
           <e p="Combat" t="Include">
             <e p="Combatant.cs" t="Include" />
+          </e>
+          <e p="Door" t="Include">
+            <e p="Door.cs" t="Include" />
           </e>
           <e p="GravityGun" t="Include">
             <e p="GrabableObject.cs" t="Include" />
             <e p="GravityGun.cs" t="Include" />
+          </e>
+          <e p="KeyCard" t="Include">
+            <e p="KeyCardReciever.cs" t="Include" />
           </e>
           <e p="Laser" t="Include">
             <e p="Laser.cs" t="Include" />
@@ -26,9 +36,11 @@
           <e p="Turret" t="Include">
             <e p="Turret.cs" t="Include" />
           </e>
+          <e p="Win" t="Include">
+            <e p="WinCollider.cs" t="Include" />
+          </e>
         </e>
         <e p="Player" t="Include">
-          <e p="MouseWorldPosition.cs" t="Include" />
           <e p="PlayerAnimationCodeHook.cs" t="Include" />
           <e p="PlayerLifeController.cs" t="Include" />
           <e p="PlayerRotationController.cs" t="Include" />
@@ -44,13 +56,6 @@
             <e p="PauseMenuController.cs" t="Include" />
             <e p="PauseMenuSingleton.cs" t="Include" />
           </e>
-        </e>
-        <e p="Scripts" t="Include">
-          <e p="Button.cs" t="Include" />
-          <e p="Door.cs" t="Include" />
-          <e p="KeyCardReciever.cs" t="Include" />
-          <e p="SimpleCameraController.cs" t="Include" />
-          <e p="WinCollider.cs" t="Include" />
         </e>
         <e p="Textures" t="Include">
           <e p="PanTexture.cs" t="Include" />

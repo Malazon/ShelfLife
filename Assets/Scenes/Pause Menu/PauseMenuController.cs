@@ -22,7 +22,7 @@ public class PauseMenuController : MonoBehaviour
         {
             WonParent.SetActive(true);
         }
-        else if (PlayerSingleton.Active != null && PlayerSingleton.Active.Combatant.HasDied)
+        else if (PlayerSingleton.Combatant != null && PlayerSingleton.Combatant.HasDied)
         {
             DeathParent.SetActive(true);
         }
@@ -58,7 +58,7 @@ public class PauseMenuController : MonoBehaviour
             {
                 SceneManager.LoadScene("Main Menu");
                 PauseMenuSingleton.Active.Unpause();
-            } else if (PlayerSingleton.Active != null && PlayerSingleton.Active.Combatant.HasDied)
+            } else if (PlayerSingleton.Combatant != null && PlayerSingleton.Combatant.HasDied)
             {
                 SceneManager.LoadScene("Main Menu");
                 PauseMenuSingleton.Active.Unpause();

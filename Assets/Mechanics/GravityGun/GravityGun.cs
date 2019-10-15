@@ -29,6 +29,7 @@ public class GravityGun : MonoBehaviour
 
         if (PlayerSingleton.Active == null) return;
         var player = PlayerSingleton.Active;
+        var playerRigidBody = PlayerSingleton.RigidBody;
 
         if (Input.GetMouseButtonDown(1)) // Pick up object
         {
@@ -44,7 +45,7 @@ public class GravityGun : MonoBehaviour
             Debug.DrawRay(this.transform.position, Vector3.up, Color.blue, 5f);
 
             var raycastHits = Physics.SphereCastAll(this.transform.position - Vector3.up * this.transform.position.y, 1f,
-                player.RigidBody.rotation * Vector3.forward, 3.5f, LayerMask.GetMask("Grabable"));
+                playerRigidBody.rotation * Vector3.forward, 3.5f, LayerMask.GetMask("Grabable"));
 
             float targetDistance = 10000f;
             int targetPriority = -1;
@@ -55,7 +56,7 @@ public class GravityGun : MonoBehaviour
                 
                 if (!collider.TryGetComponent(out Rigidbody colliderRigidBody)) continue;
                 
-                colliderRigidBody.AddRelativeForce(player.RigidBody.rotation * Vector3.back * BotherForce, ForceMode.Impulse);
+                colliderRigidBody.AddRelativeForce(playerRigidBody.rotation * Vector3.back * BotherForce, ForceMode.Impulse);
 
                 var colliderPriority = -1;
                 
@@ -106,7 +107,7 @@ public class GravityGun : MonoBehaviour
 
             // Dont use reset here to set velocity manually.
             target.useGravity = true;
-            target.velocity = (player.RigidBody.rotation * Vector3.forward).normalized * ThrowSpeed;
+            target.velocity = (playerRigidBody.rotation * Vector3.forward).normalized * ThrowSpeed;
             target = null;
         }
         else if (Input.GetMouseButtonUp(1)) // Drop Object

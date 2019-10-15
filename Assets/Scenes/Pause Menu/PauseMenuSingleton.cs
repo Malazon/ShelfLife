@@ -14,14 +14,7 @@ public class PauseMenuSingleton : MonoBehaviour
     public bool DisablePause = false;
     public bool WonGame;
 
-    public static bool Paused
-    {
-        get
-        {
-            if (Active != null) return Active._paused;
-            return false;
-        }
-    }
+    public static bool Paused => Active == null || Active._paused;
 
     // Start is called before the first frame update
     void Start()

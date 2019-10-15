@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Cinemachine.Utility;
+using UnityEngine;
 
 public class PlayerSpeedController : MonoBehaviour
 {
@@ -10,67 +11,60 @@ public class PlayerSpeedController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        // Return if the game is paused.
         if (PauseMenuSingleton.Paused) return;
 
-        if (PlayerSingleton.Active == null) return;
+        // Return to wait for the singleton to update.
+        // Or if the player has died.
+        if (PlayerSingleton.Combatant == null || PlayerSingleton.Combatant.HasDied) return;
 
-        var player = PlayerSingleton.Active;
-
-        if (player.Combatant.HasDied) return;
-
+        // Return if the Camera isn't active.
         if (CameraSingleton.Active == null) return;
 
-        var camera = CameraSingleton.Active;
-
+        // Define known variables.
+        var playerRigidBody = PlayerSingleton.RigidBody;
+        var camera = CameraSingleton.Active.Camera;
         var input = Vector3.zero;
 
-        if (Input.GetKey(KeyCode.W)) input += Vector3.back;
-
-        if (Input.GetKey(KeyCode.S)) input += Vector3.forward;
-
-        if (Input.GetKey(KeyCode.A)) input += Vector3.right;
-
-        if (Input.GetKey(KeyCode.D)) input += Vector3.left;
-
-        // This won't make sense with analog input
-        if (input.x != 0 && input.z != 0)
-        {
-            input.x = Mathf.Clamp(input.x, -0.707f, 0.707f);
-            input.z = Mathf.Clamp(input.z, -0.707f, 0.707f);
-        }
-
-
-        var newSpeed = Mathf.Clamp(
-            player.RigidBody.velocity.magnitude + maxSpeed / cooldown * Time.deltaTime,
-            0f,
-            maxSpeed
-        );
-
-        var cameraRotation = camera.Camera.worldToCameraMatrix.MultiplyVector(Vector3.forward);
-
-        cameraRotation = Vector3.ProjectOnPlane(cameraRotation, Vector3.up).normalized;
+        // Grab the raw input.
+        input.x = Input.GetAxis("Horizontal");
+        input.z = Input.GetAxis("Vertical");
         
-        Debug.DrawRay(player.transform.position, cameraRotation, Color.red, 0);
+        // Calculate the target speed
+        var targetSpeed = Mathf.Max(input.x, input.z) * maxSpeed;
+        
+        // Grab the current speed.
+        var currentSpeed = PlayerSingleton.RigidBody.velocity.magnitude;
 
-        player.RigidBody.velocity = Quaternion.LookRotation(cameraRotation, Vector3.up) * input * newSpeed;
+        // Calculate the new player speed.
+        var newSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, maxSpeed / cooldown);
+
+        // Calculate the translation to forward.
+        var newDirection = camera.transform.TransformDirection(input).normalized;
+        
+        // Calculate the new velocity
+        var newVelocity = newDirection * newSpeed;
         
         // Check on the falling.
         if (!Physics.Raycast(transform.position + Vector3.up, Vector3.down, 3))
         {
-            player.RigidBody.velocity += Vector3.down * 5f;
+            newVelocity.y = -5;
         }
+        
+        // Apply the new velocity.
+        playerRigidBody.velocity = newVelocity;
 
         #region Animation Signals
-        player.PlayerAnimationCodeHook.SetForward(Vector3.Dot(player.RigidBody.velocity, player.transform.forward));
-        player.PlayerAnimationCodeHook.SetStrafe(Vector3.Dot(player.RigidBody.velocity, player.transform.right));
+        PlayerSingleton.PlayerAnimationCodeHook.SetForward(Vector3.Dot(playerRigidBody.velocity, playerRigidBody.transform.forward));
+        PlayerSingleton.PlayerAnimationCodeHook.SetStrafe(Vector3.Dot(playerRigidBody.velocity, playerRigidBody.transform.right));
 
-        if (input != Vector3.zero)
+        if (newVelocity.AlmostZero())
         {
-            player.PlayerAnimationCodeHook.SetMoving(true);
+            PlayerSingleton.PlayerAnimationCodeHook.SetMoving(true);
         }
         else
         {
-            player.PlayerAnimationCodeHook.SetMoving(false);
+            PlayerSingleton.PlayerAnimationCodeHook.SetMoving(false);
         }
         #endregion
     }

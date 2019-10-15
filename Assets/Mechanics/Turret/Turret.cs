@@ -96,7 +96,7 @@ public class Turret : MonoBehaviour
             if (hit.collider.CompareTag("Player"))
             {
                 lastSeen = Time.time;
-                PlayerSingleton.Active.Combatant.DoDamage(50 * Time.deltaTime);
+                PlayerSingleton.Combatant.DoDamage(50 * Time.deltaTime);
             }
         } 
         else

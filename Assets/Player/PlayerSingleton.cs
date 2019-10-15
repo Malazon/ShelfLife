@@ -2,19 +2,21 @@
 
 public class PlayerSingleton : MonoBehaviour
 {
-    [SerializeField] private Rigidbody _rigidBody;
-    [SerializeField] private MouseWorldPosition _mouseWorldPosition;
-    [SerializeField] private PlayerAnimationCodeHook _playerAnimatorCodeHook = null;
-    [SerializeField] private PlayerLifeController _lifeController;
-    [SerializeField] private Combatant _combatant;
+    #region Serialized Fields
 
+    [SerializeField] private Rigidbody rigidBody;
+    [SerializeField] private PlayerAnimationCodeHook playerAnimatorCodeHook = null;
+    [SerializeField] private Combatant combatant;
+
+    #endregion
+
+    #region Static Accessors
     public static PlayerSingleton Active { get; private set; }
-
-    public Rigidbody RigidBody => _rigidBody;
-    public Combatant Combatant => _combatant;
-
-    public MouseWorldPosition MouseWorldPosition => _mouseWorldPosition;
-    public PlayerAnimationCodeHook PlayerAnimationCodeHook => _playerAnimatorCodeHook;
+    public static Rigidbody RigidBody { get => Active == null ? null : Active.rigidBody; }
+    public static Combatant Combatant { get => Active == null ? null : Active.combatant; }
+    public static PlayerAnimationCodeHook PlayerAnimationCodeHook { get => Active == null ? null : Active.playerAnimatorCodeHook; }
+    
+    #endregion
     
     private void Start()
     {

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Cinemachine.Utility;
+using UnityEngine;
 
 public class PlayerRotationController : MonoBehaviour
 {
@@ -11,34 +12,36 @@ public class PlayerRotationController : MonoBehaviour
         if (PauseMenuSingleton.Paused) return;
         if (PlayerSingleton.Active == null) return;
 
-        var player = PlayerSingleton.Active;
+        var playerRigidBody = PlayerSingleton.RigidBody;
+        var playerCombatant = PlayerSingleton.Combatant;
 
-        if (player.Combatant.HasDied) return;
+        if (playerCombatant.HasDied) return;
 
         // Clear the angular velocity
-        player.RigidBody.angularVelocity = Vector3.zero;
+        playerRigidBody.angularVelocity = Vector3.zero;
         
-        if (player.MouseWorldPosition.Position == null)
+        if (CameraSingleton.MouseWorldPosition == null)
         {
-            // If the ground is not hit, ensure the pawn is upright.
-            var planeTargetDirection = Vector3.ProjectOnPlane(player.RigidBody.rotation * Vector3.forward, Vector3.up);
-            player.RigidBody.rotation = Quaternion.LookRotation(planeTargetDirection, Vector3.up);
+            // If the mouse position does not exist, ensure the player is upright.
+            var currentDirection = playerRigidBody.transform.forward.ProjectOntoPlane(Vector3.up);
+            playerRigidBody.rotation = Quaternion.LookRotation(currentDirection);
         }
         else
         {
-            Vector3 mousePosition = player.MouseWorldPosition.Position ?? player.RigidBody.position;
-            // If the ground is hit, rotate towards the screen
-            var planeTargetDirection = Vector3.ProjectOnPlane(mousePosition - player.RigidBody.position, Vector3.up);
-            var planeCurrentDirection = Vector3.ProjectOnPlane(player.RigidBody.rotation * Vector3.forward, Vector3.up);
+            // If the mouse position exists, rotate towards it.
+            var safeMousePosition = (Vector3)CameraSingleton.MouseWorldPosition;
+
+            var currentDirection = playerRigidBody.transform.forward.ProjectOntoPlane(Vector3.up);
+            var targetDirection = (safeMousePosition - playerRigidBody.position).ProjectOntoPlane(Vector3.up);
 
             var angleToRotate = Mathf.Clamp(
-                Vector3.SignedAngle(planeCurrentDirection, planeTargetDirection, Vector3.up),
+                Vector3.SignedAngle(targetDirection, currentDirection, Vector3.up),
                 -rotationRate * Time.deltaTime,
                 rotationRate * Time.deltaTime
             );
 
-            player.RigidBody.rotation = Quaternion.LookRotation(planeCurrentDirection, Vector3.up) *
-                                        Quaternion.AngleAxis(angleToRotate, Vector3.up);
+            playerRigidBody.rotation = Quaternion.LookRotation(currentDirection) *
+                                       Quaternion.Euler(0, angleToRotate, 0);
         }
 
     }
