@@ -29,6 +29,8 @@ public class PlayerAnimationCodeHook : MonoBehaviour
     private const string isMoving_ParamName = "IsMoving";
     private const string forward_ParamName = "Forward";
     private const string strafe_ParamName = "Strafe";
+    private const string danceIndex_ParamName = "danceIndex";
+
 
     private void Start()
     {
@@ -71,5 +73,10 @@ public class PlayerAnimationCodeHook : MonoBehaviour
     public void SetStrafe(float value)
     {
         animator.SetFloat(strafe_ParamName, value);
+    }
+
+    public void SetDanceIndex(int index)
+    {
+        animator.SetInteger(danceIndex_ParamName, index);
     }
 }

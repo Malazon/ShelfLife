@@ -7,6 +7,8 @@ public class MainMenu_UI_Responses : MonoBehaviour
 {
     const string startLevel = "Room 1";
     const string characterDanceKey = "IsDancing";
+    const string danceIndex_ParamName = "danceIndex";
+
 
     int zoomFov = 180;
     int defautFov = 60;
@@ -90,6 +92,12 @@ public class MainMenu_UI_Responses : MonoBehaviour
         {
             txfmToRotate.rotation = Quaternion.Lerp(txfmToRotate.rotation, pos1.rotation, Time.deltaTime * smoothFactor);
         }
+    }
+
+
+    public void SetDanceIndex(int index)
+    {
+        mainMenuCharacterAnimator.SetInteger(danceIndex_ParamName, index);
     }
 
 
