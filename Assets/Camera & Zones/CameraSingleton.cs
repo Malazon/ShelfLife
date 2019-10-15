@@ -59,7 +59,7 @@ public class CameraSingleton : MonoBehaviour
         var mouseRay = Active._camera.ScreenPointToRay(Input.mousePosition);
         float distanceToGround = mouseRay.origin.y / mouseRay.direction.y;
 
-        _worldMousePosition = mouseRay.origin + mouseRay.direction * distanceToGround;
+        _worldMousePosition = mouseRay.origin - mouseRay.direction * distanceToGround;
     }
     public static Vector3? MouseWorldPosition
     {

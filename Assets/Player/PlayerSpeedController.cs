@@ -31,19 +31,41 @@ public class PlayerSpeedController : MonoBehaviour
         input.z = Input.GetAxis("Vertical");
         
         // Calculate the target speed
-        var targetSpeed = Mathf.Max(input.x, input.z) * maxSpeed;
-        
+        var targetSpeed = Mathf.Abs((input.x * input.x > input.z * input.z ? input.x : input.z) * maxSpeed);
+
         // Grab the current speed.
         var currentSpeed = PlayerSingleton.RigidBody.velocity.magnitude;
 
         // Calculate the new player speed.
-        var newSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, maxSpeed / cooldown);
+        var maxDelta = (maxSpeed / cooldown) * Time.deltaTime;
+        var delta = Mathf.Clamp(targetSpeed - currentSpeed, -maxDelta, maxDelta);
+        var newSpeed = Mathf.Clamp(currentSpeed + delta, 0, maxSpeed);
 
         // Calculate the translation to forward.
-        var newDirection = camera.transform.TransformDirection(input).normalized;
+        var cameraTransform = camera.cameraToWorldMatrix;
+        var axisX = cameraTransform.MultiplyVector(Vector3.right);
+        var axisY = cameraTransform.MultiplyVector(Vector3.up);
+        var axisZ = cameraTransform.MultiplyVector(Vector3.back);
+        
+        // Useful for visualizing
+        // Debug.DrawRay(playerRigidBody.position, axisX*5, Color.red);
+        // Debug.DrawRay(playerRigidBody.position, axisY*5, Color.blue);
+        // Debug.DrawRay(playerRigidBody.position, axisZ*5, Color.green);
+
+        Vector3 transformedInput;
+        if (Vector3.Dot(axisZ, Vector3.up) < 0.1f)
+        {
+            // Only use the Y axis if we are almost straight down.
+            transformedInput = Quaternion.LookRotation(axisY.ProjectOntoPlane(Vector3.up))*input;
+        }
+        else
+        {
+            transformedInput = Quaternion.LookRotation(axisZ.ProjectOntoPlane(Vector3.up))*input;
+        }
+        Debug.DrawRay(playerRigidBody.position, transformedInput*5, Color.white);
         
         // Calculate the new velocity
-        var newVelocity = newDirection * newSpeed;
+        var newVelocity = transformedInput * newSpeed;
         
         // Check on the falling.
         if (!Physics.Raycast(transform.position + Vector3.up, Vector3.down, 3))
