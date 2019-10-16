@@ -166,7 +166,6 @@ GameObject:
   - component: {fileID: 4508747413169201159}
   - component: {fileID: 7127031982151309504}
   - component: {fileID: 7720259956458502323}
-  - component: {fileID: 1335318546}
   - component: {fileID: 605471262300613079}
   - component: {fileID: 5540112919099407030}
   m_Layer: 0
@@ -219,11 +218,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a12135562408ec4aa19a4a9cfe852be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rigidBody: {fileID: 7720259956458502323}
-  _mouseWorldPosition: {fileID: 1335318546}
-  _playerAnimatorCodeHook: {fileID: 4992041609091458061}
-  _lifeController: {fileID: 605471262300613079}
-  _combatant: {fileID: 6267781316553480641}
+  rigidBody: {fileID: 7720259956458502323}
+  playerAnimatorCodeHook: {fileID: 4992041609091458061}
+  combatant: {fileID: 6267781316553480641}
 --- !u!114 &7127031982151309504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,18 +250,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &1335318546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5845376116309550131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e7c28629f36c954686d9df6833e9dfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &605471262300613079
 MonoBehaviour:
   m_ObjectHideFlags: 0

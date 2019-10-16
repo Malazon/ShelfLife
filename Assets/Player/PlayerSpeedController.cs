@@ -80,7 +80,7 @@ public class PlayerSpeedController : MonoBehaviour
         PlayerSingleton.PlayerAnimationCodeHook.SetForward(Vector3.Dot(playerRigidBody.velocity, playerRigidBody.transform.forward));
         PlayerSingleton.PlayerAnimationCodeHook.SetStrafe(Vector3.Dot(playerRigidBody.velocity, playerRigidBody.transform.right));
 
-        if (newVelocity.AlmostZero())
+        if (!newVelocity.AlmostZero())
         {
             PlayerSingleton.PlayerAnimationCodeHook.SetMoving(true);
         }
