@@ -10,11 +10,14 @@ public class GravityGun : MonoBehaviour
     [SerializeField] private ParticleSystem unfocused;
     [SerializeField] private ParticleSystem focused;
 
+    // call .Play() on this when firing a held object to make Sound Design happy developers.
+    [SerializeField] private AudioSource sfxToPlayWhenFiringAHeldObject = null;
+
     private Rigidbody target;
 
     private void tryResetTarget()
     {
-        
+
         if (target != null)
         {
             target.useGravity = true;
