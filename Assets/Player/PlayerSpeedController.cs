@@ -14,15 +14,18 @@ public class PlayerSpeedController : MonoBehaviour
         // Return if the game is paused.
         if (PauseMenuSingleton.Paused) return;
 
+        // Define known variables.
+        var playerRigidBody = PlayerSingleton.RigidBody;
+
         // Return to wait for the singleton to update.
         // Or if the player has died.
-        if (PlayerSingleton.Combatant == null || PlayerSingleton.Combatant.HasDied) return;
+        if (PlayerSingleton.Combatant == null || PlayerSingleton.Combatant.HasDied)
+        {
+            playerRigidBody.velocity = Vector3.zero;
+        };
 
         // Return if the Camera isn't active.
         if (CameraSingleton.Active == null) return;
-
-        // Define known variables.
-        var playerRigidBody = PlayerSingleton.RigidBody;
         var camera = CameraSingleton.Active.Camera;
         var input = Vector3.zero;
 
