@@ -83,53 +83,6 @@ public class Door : MonoBehaviour
                 break;
             default: break;
         }
-        switch (myState)
-        {
-            case DoorState.Open:
-                {
-                    // too long?  back to ajar!
-                    if (Time.time - lastTriggerTime > 0.5f)
-                    {
-                        myState = DoorState.Ajar;
-                    }
-                }
-                break;
-            case DoorState.Ajar:
-                {
-                    if (Time.time - lastTriggerTime < 0.5f)
-                    {
-                        Quaternion targetQuat = Quaternion.Euler(0, 90, 0);
-                        // Open
-                        Hinge.localRotation = Quaternion.RotateTowards(Hinge.localRotation, targetQuat, 720 * Time.deltaTime);
-
-                        if (Mathf.Approximately(Quaternion.Angle(Hinge.localRotation, targetQuat), 0f))
-                        {
-                            ChangeState(DoorState.Open);
-                        }
-                    }
-                    else
-                    {
-                        // Close
-                        Hinge.localRotation = Quaternion.RotateTowards(Hinge.localRotation, Quaternion.identity, 720 * Time.deltaTime);
-
-                        if (Mathf.Approximately(Quaternion.Angle(Hinge.localRotation, Quaternion.identity), 0f))
-                        {
-                            ChangeState(DoorState.Closed);
-                        }
-                    }
-                }
-                break;
-            case DoorState.Closed:
-                {
-                    if (Time.time - lastTriggerTime < 0.5f)
-                    {
-                        ChangeState(DoorState.Ajar);
-                    }
-                }
-                break;
-            default: break;
-        }
-
     }
 
     private void ChangeState(DoorState newState, bool silent = false)
