@@ -24,6 +24,12 @@ public class MainMenu_UI_Responses : MonoBehaviour
     [SerializeField] private GameObject uiHinge = null;
     [SerializeField] private Animator mainMenuCharacterAnimator = null;
 
+    private void Start()
+    {
+        // THIS IS A HACK BECAUSE DEAD GUM LOADSCENE IS BLASTING UNPAUSE
+        PauseMenuSingleton.Active.Unpause();
+    }
+
     public void OnPlayClicked()
     {
         clickedPlay = true;

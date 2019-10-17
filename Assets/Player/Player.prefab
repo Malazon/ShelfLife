@@ -136,7 +136,7 @@ CapsuleCollider:
   m_Radius: 0.21
   m_Height: 0.78
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0.89, z: -0.00000008940697}
+  m_Center: {x: 0.000000059604645, y: 0.34, z: -0.00000008940697}
 --- !u!114 &6267781316553480641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,7 +276,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseMenuPrefab: {fileID: 8291663216259049723, guid: 1b9bbee8902bf3d4289ec43a8a0d07b6,
     type: 3}
-  PauseMenuInstance: {fileID: 0}
   DisablePause: 0
   WonGame: 0
 --- !u!1001 &1138870131947868744

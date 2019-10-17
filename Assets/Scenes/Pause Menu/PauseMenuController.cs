@@ -42,10 +42,10 @@ public class PauseMenuController : MonoBehaviour
         PauseMenuSingleton.Active.Unpause();
     }
 
-    public void LoadMainMenu ()
+    private void LoadMainMenu ()
     {
-        SceneManager.LoadScene("Main Menu");
         PauseMenuSingleton.Active.Unpause();
+        SceneManager.LoadSceneAsync("Main Menu");
     }
 
     private void Update()
@@ -56,12 +56,11 @@ public class PauseMenuController : MonoBehaviour
             
             if (PauseMenuSingleton.Active.WonGame)
             {
-                SceneManager.LoadScene("Main Menu");
-                PauseMenuSingleton.Active.Unpause();
-            } else if (PlayerSingleton.Combatant != null && PlayerSingleton.Combatant.HasDied)
+                LoadMainMenu();
+            }
+            else if (PlayerSingleton.Combatant != null && PlayerSingleton.Combatant.HasDied)
             {
-                SceneManager.LoadScene("Main Menu");
-                PauseMenuSingleton.Active.Unpause();
+                LoadMainMenu();
             }
             else
             {
