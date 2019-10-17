@@ -29,6 +29,9 @@ public class MainMenu_UI_Responses : MonoBehaviour
         // THIS IS A HACK BECAUSE DEAD GUM LOADSCENE IS BLASTING UNPAUSE
         if(PauseMenuSingleton.Active != null)
             PauseMenuSingleton.Active.Unpause();
+        Time.timeScale = 1;
+
+
     }
 
     public void OnPlayClicked()
