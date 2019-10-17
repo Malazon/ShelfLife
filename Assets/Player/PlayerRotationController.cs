@@ -15,18 +15,15 @@ public class PlayerRotationController : MonoBehaviour
         var playerRigidBody = PlayerSingleton.RigidBody;
         var playerCombatant = PlayerSingleton.Combatant;
 
-        if (playerCombatant.HasDied)
-        {
-            playerRigidBody.angularVelocity = Vector3.zero;
-            return;
-        };
-
         // Clear the angular velocity
         playerRigidBody.angularVelocity = Vector3.zero;
         
         // Ensure the player is upright.
         var currentDirection = playerRigidBody.transform.forward.ProjectOntoPlane(Vector3.up);
         playerRigidBody.rotation = Quaternion.LookRotation(currentDirection);
+
+        // Don't try to rotate if the player is dead.
+        if (playerCombatant.HasDied) return;
         
         if (CameraSingleton.MouseWorldPosition != null)
         {
