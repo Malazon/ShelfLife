@@ -112,6 +112,8 @@ public class GravityGun : MonoBehaviour
             target.useGravity = true;
             target.velocity = (playerRigidBody.rotation * Vector3.forward).normalized * ThrowSpeed;
             target = null;
+
+            sfxToPlayWhenFiringAHeldObject.Play();
         }
         else if (Input.GetMouseButtonUp(1)) // Drop Object
         {
