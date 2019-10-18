@@ -28,9 +28,10 @@ public class ZoneTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (CameraSingleton.Active == null) return;
+        
+        if (!other.CompareTag("Player")) return;
 
-        if (other.GetComponentInParent<PlayerSingleton>() != null)
-            CameraSingleton.Active.TargetTransform = CameraLocation.transform;
+        CameraSingleton.Active.TargetTransform = CameraLocation.transform;
         
         allLights = allLights.Where(l => l != null).ToList();
 
@@ -43,5 +44,18 @@ public class ZoneTrigger : MonoBehaviour
         {
             l.gameObject.SetActive(true);
         }
+    }
+    
+    private void OnTriggerStay(Collider other)
+    {
+        if (CameraSingleton.Active == null)
+        {
+            Debug.Log("Skipping update");
+            return;
+        }
+
+        if (!other.CompareTag("Player")) return;
+
+        CameraSingleton.Active.TargetTransform = CameraLocation.transform;
     }
 }
